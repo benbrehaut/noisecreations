@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">	
+	<title>Contact Us | noisecreations</title>
+	   		<meta name="description" content="noisecreations - People who create sounds for film, tv and video games." />
+   			<meta name="keywords" content="noise, creations, noisecreations, foyle, sound, sound engineers, sound experts, southampton, hampshire, solent, southampton solent university" />
+   		 		<link rel="icon" href="imgs/favicon.ico" type="image/png"/>
+   		 				<link rel="stylesheet" href="styles.css">
+   		 				<link rel="stylesheet" href="headhesive.css">
+   		 						<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+   		 				<script src="formValidator.js"></script>
+                <script>
+					function inputFocus(i){
+					if(i.value==i.defaultValue){ i.value=""; i.style.color="#000000"; } //text colour when user clicks in box and enters info
+					}
+					function inputBlur(i){
+						if(i.value==""){ i.value=i.defaultValue; i.style.color="#999999";  } //text colour when user clicks out of box
+						}
+				</script>
+</head>
+<body>
+<header class="banner">
+	<div id="logo">
+		<a href="http://www.noisecreations.co.uk"><img src="imgs/logo_v9_final_transparent_white-text.png" alt="noisecreations logo" class="responsive_logo"/></a>
+	</div>
+<nav>		<!-- Would use html5 nav, but breaks up the colour scheme -->
+	<div id="#"><a href="#" id="mobile-menu"></a></div>
+	  <ul id="nav">
+				<li><a href="index">HOME</a></li>
+				<li><a href="about">ABOUT</a></li>
+				<li><a href="sounds">SOUNDS</a></li>
+				<li><a href="http://noisecreations.wordpress.com/" target="_blank">BLOG</a></li>
+				<li class="active"><a href="contact">CONTACT</a></li> 
+				<li><a href="https://soundcloud.com/noisecreations" target="_blank"><span class="banner_icons_sound"></span></a></li>
+				<li><a href="https://twitter.com/NoiseCreations" target="_blank"><span class="banner_icons_twit"></span></a></li>
+	  </ul>
+</nav>
+</header>
+<div id="hero_area_contact">
+	<div id="hero_area_contact_content">
+		<h1>Contact Us</h1>
+			<p>We would love to hear from you and how we can bring some noise to your project!</p>
+    </div>
+</div>
+<a id="showHere"></a> <!-- fixed menu -->
+<div id="contact_wrapper">
+			<div id="left_contact">
+				<p>If you have any questions about us or our sound collections, simply fill out our form or throw us an email or tweet!</p>
+				<p><img src="imgs/twit_email_icon.png" alt="twit_email_icon" class="contact_img"/><a href="mailto:info@noisecreations.co.uk" target="_blank">info@noisecreations.co.uk</a></p>
+				<p><img src="imgs/twit_contact_icon.png" alt="twit_contact_icon" class="contact_img"/><a href="https://twitter.com/noisecreations" target="_blank">@noisecreations</a></p>
+			</div>
+			<div id="right_contact">
+    <form action="send_contact.php" method="POST">
+        	<input type='text' name='name' id='name' value="First Name*" style="color:#888;"  onfocus="inputFocus(this)" onblur="inputBlur(this)"  /><br /><br />
+        	<input type='email' name='email' id='email' value="Email Address*" style="color:#888;"  onfocus="inputFocus(this)" onblur="inputBlur(this)" /><br /><br />
+			<textarea name="message" id='message' rows="5" cols="50" style="color:#888;"  onfocus="inputFocus(this)" onblur="inputBlur(this)">Your Message*</textarea> <br /><br />	
+			<input type='submit' value='SEND MESSAGE' class="button_contact" />		<!-- submit btn -->
+	</form>
+			</div>
+</div>
+<footer>
+	<div class="left_footer_content">
+		<img src="imgs/small_logo.png" alt="small_logo"/>
+		<p>We create sound effects collections for you to use in your personal and commercial projects.</p>
+	</div>
+	<div class="right_footer_content">
+		<p><a href="https://twitter.com/NoiseCreations"><img src="imgs/twit_footer_icon.png" alt="twit_footer_icon" onmouseover="this.src='imgs/twit_footer_icon_roll.png'" onmouseout="this.src='imgs/twit_footer_icon.png'"/></a>
+		<a href="https://soundcloud.com/noisecreations"><img src="imgs/soundcloud_footer_icon.png" alt="soundcloud_icon" onmouseover="this.src='imgs/soundcloud_header_roll.png'" onmouseout="this.src='imgs/								soundcloud_footer_icon.png'"/></a><br/>
+		noisecreations &copy; 2015  / <a href="cookies">Cookies</a>  / <a href="terms">Terms</a>  / <a href="contact">Contact</a></p>
+	</div> 
+</footer>
+    <script type="text/javascript" src="js/headhesive.js"></script>
+    <script>
+
+        // Set options
+        var options = {
+            offset: '#showHere',
+            classes: {
+                clone:   'banner--clone',
+                stick:   'banner--stick',
+                unstick: 'banner--unstick'
+            }
+        };
+
+        // Initialise with options
+        var banner = new Headhesive('.banner', options);
+
+        // Headhesive destroy
+        // banner.destroy();
+    </script>
+</body>
+</html>
