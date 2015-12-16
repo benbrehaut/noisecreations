@@ -134,7 +134,8 @@ nav li
 {
 	display: inline-block;
 	float: left;
-	padding-right: 30px;
+	padding-right: 25px;
+	font-size: 14px;
 }
 
 nav ul li a:link
@@ -589,6 +590,78 @@ a:hover#mobile-menu {
 }
 
 /***********/
+/** Tutorials  **/
+/***********/
+
+#tutorials_banner
+{
+	margin: 0px auto 0px;
+	padding-top: 225px;
+	max-width: 100%;
+	height: 420px;
+	position: relative;
+	text-align: center;
+	background: url(imgs/tutorials-banner.png);	/* Large photo on top section */
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+  	color: #fff;
+  	text-shadow: 1px 1px 1px #000;
+}
+
+#tutorials_banner h1
+{
+	color: #fff;
+}
+
+.full_width_column
+{
+	width: 80%;
+	background-color: #ffffff;
+	border: 1px solid #dadfe1;
+	border-radius: 5px;
+	display: inline-block;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-top: 30px;
+	vertical-align: top;
+	margin-right: 40px;
+}
+
+.tutorial-img
+{
+	float: left;
+	padding-left: 25px;
+}
+
+.full_width_column_text
+{
+	text-align: left;
+	float: left;
+	padding-left: 25px;
+}
+
+.full_width_column_text h2
+{
+	text-align: left;
+}
+
+.full_width_column_text .button_sounds
+{
+	text-align: center;
+	margin-left: 0;
+}
+
+.big
+{
+	width: 75% !important;
+}
+
+/***********/
 /** Contact  **/
 /***********/
 
@@ -988,6 +1061,7 @@ em
 	width: 150px;
 	padding: 15px 15px 15px 15px;
 	height: 50px;
+	text-align: center;
 	font-size: 1em;
 	font-family: 'GothamRounded-Book', Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;

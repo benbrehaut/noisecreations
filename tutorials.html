@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-	<title>noisecreations</title>
+	<title>Tutorials | noisecreations</title>
 	   		<meta name="description" content="noisecreations - People who create sounds for film, tv and video games." />
    			<meta name="keywords" content="noise, creations, noisecreations, foyle, sound, sound engineers, sound experts, southampton, hampshire, solent, southampton solent university" />
    		 		<link rel="icon" href="imgs/favicon.ico" type="image/png"/>
@@ -18,11 +18,11 @@
 	<nav>		<!-- Would use html5 nav, but breaks up the colour scheme -->
 		<div id="#"><a href="#" id="mobile-menu"></a></div>
 		  <ul id="nav">
-					<li class="active"><a href="index">HOME</a></li>
+					<li><a href="index">HOME</a></li>
 					<li><a href="about">ABOUT</a></li>
 					<li><a href="sounds">SOUNDS</a></li>
 					<li><a href="bundles">BUNDLES</a></li>
-					<li><a href="tutorials">TUTORIALS</a></li>
+					<li class="active"><a href="tutorials">TUTORIALS</a></li>
 					<li><a href="http://noisecreations.wordpress.com/" target="_blank">BLOG</a></li>
 					<li><a href="contact">CONTACT</a></li>
 					<li><a href="https://soundcloud.com/noisecreations" target="_blank"><span class="banner_icons_sound"></span></a></li>
@@ -30,36 +30,24 @@
 		  </ul>
 	</nav>
 </header>
-<div id="hero_area">
-	<div id="hero_area_content">
-		<h1>we are noisecreations</h1>
-			<form action="sounds"><input type="submit" class="button_center" value="view sound collections"></form>
+<div id="tutorials_banner">
+	<div id="hero_area_sounds_content">
+		<h1>tutorials</h1>
     </div>
 </div>
-<a id="showHere"></a>
-    <div id="two_column">
-                <h2>What We Do</h2>
-       				 <div id="two_column_left">
-       						<img src="imgs/headphones.png" alt="headphones" />
-	   					<div class="two_column_text">
-        				<h6>Sound Effects</h6>
-                        	<p>High quality sound effects collections that focus on sounds that are difficult or time-consuming to acquire. For film makers, game developers and professional sound designers.</p>
-	   					</div>
-        			</div>
-        			<div id="two_column_right">
-        					<img src="imgs/sound_bars.png" alt="sound_bars" />
-						<div class="two_column_text">
-        				<h6>Post-Production Audio</h6>
-                        	<p>Need more tailored sounds, foley, or a 5.1 mix for your project? Email us to discuss your requirements.</p>
-						</div>
-        			</div>
-    </div>		<!-- end div services -->
-<!--
-<div id="recent_work">
-	<a href="interact"><img src="imgs/interact_box_small_reflection.png" alt="interact_box_small_reflection" class="img" /></a>
-	<a href="glass"><img src="imgs/glass_box_small_reflection.png" alt="glass_box_small_reflection" class="img"></a>
-</div>
--->
+<a id="showHere"></a> <!-- fixed menu -->
+    <div class="sounds_two_column">
+		<div class="full_width_column">
+			<div class="tutorial-img">
+				<a href="tutorial-one"><img src="imgs/tutorials-one-placeholder.jpg" height="169" width="300" alt="aura_box_small" /></a>
+			</div>
+			<div class="full_width_column_text">
+				<h2>TUTORIAL #01 | Rocky Explosions</h2>
+					<p>Philip guides you through the processes of designing rocky explosions from scratch.</p>
+					<form action="tutorial-one"><input type="submit" class="button_sounds" value="Read More"></form>
+			</div>
+		</div>
+    </div>
 <div id="pre_footer">
 	<div class="pre_footer_text">
 		<h3>Think we can provide audio for your project? <a href="contact">Get in touch &raquo;</a></h3>
@@ -67,7 +55,7 @@
 </div>
 <footer>
 	<div class="left_footer_content">
-		<img src="imgs/small_logo.png" alt="small_logo" class="img"/>
+		<img src="imgs/small_logo.png" alt="small_logo"/>
 		<p>We create sound effects collections for you to use in your personal and commercial projects.</p>
 	</div>
 	<div class="right_footer_content">
@@ -93,5 +81,7 @@
         var banner = new Headhesive('.banner', options);
 
         // Headhesive destroy
-        // banner.destroy
+        // banner.destroy();
     </script>
+</body>
+</html>
