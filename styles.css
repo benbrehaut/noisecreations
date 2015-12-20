@@ -503,7 +503,7 @@ a:hover#mobile-menu {
 .two_column_sound_left
 {
 	width: 480px;
-	height: 530px;
+	height: auto;
 	text-align: center;
 	background-color: #ffffff;
 	border: 1px solid #dadfe1;
@@ -518,7 +518,7 @@ a:hover#mobile-menu {
 .two_column_sound_right
 {
 	width: 480px;
-	height: 530px;
+	height: auto;
 	text-align: center;
 	background-color: #ffffff;
 	border: 1px solid #dadfe1;
@@ -527,6 +527,20 @@ a:hover#mobile-menu {
 	padding-top: 30px;
 	margin-top: 30px;
 	margin-left: 40px;
+	vertical-align: top;
+}
+
+.two_column_sound_single
+{
+	width: 480px;
+	height: auto;
+	text-align: center;
+	background-color: #ffffff;
+	border: 1px solid #dadfe1;
+	border-radius: 5px;
+	display: inline-block;
+	padding-top: 30px;
+	margin-top: 30px;
 	vertical-align: top;
 }
 
