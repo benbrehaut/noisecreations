@@ -1,4 +1,5 @@
 dir_to_ignore/fonts
+fonts
 npm_modules
 bower_components
 trash
