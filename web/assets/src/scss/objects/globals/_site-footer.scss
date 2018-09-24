@@ -1,0 +1,56 @@
+/// ============================================================================
+// Object: _site-footer
+/// ============================================================================
+.o-site-footer {
+  width: 100%;
+  background-color: $palette-quaternary;
+}
+
+.o-site-footer__bottom {
+  padding: rem-calc(55 0);
+  font-size: rem-calc(14);
+  color: #999999;
+}
+
+.o-site-footer-list__item {
+  display: block;
+}
+
+.o-site-footer-list__link {
+  text-decoration: none;
+  color: currentColor;
+  transition: 200ms ease-in-out;
+
+  &:hover {
+    color: $palette-tertiary;
+  }
+}
+
+.o-site-footer__col {
+  @include breakpoint(md down) {
+    margin-bottom: rem-calc(25);
+  }
+}
+
+.o-site-footer__title {
+  font-size: rem-calc(16);
+  color: $palette-tertiary;
+  margin-bottom: rem-calc(5);
+}
+
+.o-pre-footer {
+  width: 100%;
+  background-color: $palette-secondary;
+  padding: rem-calc(52 0);
+}
+
+.o-pre-footer__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.o-pre-footer__title {
+  color: $palette-tertiary;
+  margin: 0;
+}

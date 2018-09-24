@@ -1,0 +1,38 @@
+.c-hero-banner {
+  @include background-img;
+  position: relative;
+  padding: rem-calc(120 20);
+  min-height: 560px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($palette-quaternary, 0.45);
+    z-index: 0;
+  }
+}
+
+body.home .c-hero-banner {
+  height: 100vh;
+}
+
+.c-hero-banner__wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.c-hero-banner__title {
+  color: $palette-tertiary;
+}
+
+.c-hero-banner__icon {
+  @include horizontal-center;
+  bottom: 25px;
+}

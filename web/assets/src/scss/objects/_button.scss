@@ -1,0 +1,39 @@
+/// ============================================================================
+// Object: _buttons
+/// ============================================================================
+
+.o-btn {
+  appearance: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: $global-border-radius;
+  display: inline-block;
+  text-decoration: none;
+  line-height: $line-height-base;
+  font-family: $font-family-secondary;
+  font-size: rem-calc(18);
+  padding: rem-calc(10 30);
+  position: relative;
+  transition: all 200ms ease-in-out;
+}
+
+.o-btn-accent {
+  background-color: $palette-primary;
+  color: $palette-tertiary;
+
+  @include hocus {
+    background-color: lighten($palette-primary, 5);
+  }
+}
+
+.o-btn-primary {
+  background-color: $palette-tertiary;
+  border: 1px solid rgba($palette-secondary, 0.4);
+  color: $palette-secondary;
+
+  @include hocus {
+    background-color: #F6F7F8;
+  }
+}

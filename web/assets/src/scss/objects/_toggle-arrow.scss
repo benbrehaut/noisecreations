@@ -1,0 +1,19 @@
+.o-toggle-arrow {
+  border-radius: 50%;
+  display: block;
+  text-decoration: none;
+  width: rem-calc(55);
+  height: rem-calc(55);
+  background-color: $palette-tertiary;
+  box-shadow: 0px 0px 24px rgba(79, 89, 98, 0.15);
+  position: relative;
+  transition: 200ms ease-in-out;
+
+  &:hover {
+    transform: translateY(15%);
+  }
+}
+
+.o-toggle-arrow__wrap {
+  @include absolute-center;
+}

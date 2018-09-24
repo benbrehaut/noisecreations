@@ -2,6 +2,8 @@
 /.idea
 /vendor
 .DS_Store
+/node_modules
+/web/uploads
 
 # OS generated files #
 ######################

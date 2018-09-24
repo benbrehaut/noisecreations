@@ -1,0 +1,16 @@
+{% import 'includes/_macros' as macros  %}
+{% set heroBanner = component %}
+
+<header class="c-hero-banner u-text-c {{entry}}" role="banner" style="background-image: url('{{ heroBanner.heroBannerImage.one().getUrl() }}')">
+  <section class="c-hero-banner__wrap">
+    <h1 class="c-hero-banner__title">{{ heroBanner.heroBannerTitle }}</h1>
+
+    {% if heroBanner.heroBannerCtaLink and heroBanner.heroBannerCtaText %}
+      <a href="{{ heroBanner.heroBannerCtaLink.one().getUrl() }}" class="o-btn o-btn-accent">{{ heroBanner.heroBannerCtaText }}</a>
+    {% endif %}
+  </section>
+
+  <span class="c-hero-banner__icon">
+    {{ macros.toggleArrow('arrow-down', 'js-hero-banner-icon') }}
+  </span>
+</header>

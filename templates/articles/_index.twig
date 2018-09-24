@@ -1,0 +1,13 @@
+<header class="o-hero-banner" role="banner" style="background-image: url('{{ heroBanner.heroBannerImage.one().getUrl() }}')">
+  <section class="o-hero-banner__wrap">
+    <h1 class="o-hero-banner__title">{{ heroBanner.heroBannerTitle }}</h1>
+
+    {% if heroBanner.heroBannerCtaLink and heroBanner.heroBannerCtaText %}
+      <a href="{{ heroBanner.heroBannerCtaLink }}" class="o-btn o-btn-accent">{{ heroBanner.heroBannerCtaText }}</a>
+    {% endif %}
+  </section>
+
+  <span class="o-hero-banner__icon">
+    {{ macros.icon('arrow-down', '20px') }}
+  </span>
+</header>

@@ -13,16 +13,16 @@
  <html lang="{{ craft.app.locale }}" class="no-js">
  <head>
    {# Main Meta Tags #}
-     <meta charset="utf-8" />
+     <meta charset="utf-8">
      <meta name="viewport" content="width=device-width">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
    {# /Main Meta Tags #}
    
    {# title #}
      {% if metaTitle|length %} 
-       <title>{{ metaTitle }} {{ globalSettings.titleSeparator }} {{ siteName }}</title>
+       <title>{{ metaTitle }} | {{ siteName }}</title>
      {% else %}
-       <title>{{ title }} {{ globalSettings.titleSeparator }} {{ siteName }}</title>
+       <title>{{ title }} | {{ siteName }}</title>
      {% endif %}
    {# /title #}
  
@@ -109,14 +109,14 @@
  
    {# CSS File #}
      {% if craft.app.config.general.devMode %}
-       {% do view.registerCssFile("/assets/css/dist/main.css") %}
+       {% do view.registerCssFile("/assets/dist/css/main.css") %}
      {% else %}
-       <style>{{ craft.inlin.er('/assets/css/dist/main.min.css') | raw }}</style>
+       <style>{{ inline('/assets/dist/css/main.css') | raw }}</style>
      {% endif %}
    {# CSS File #}
  
-   <link rel="preload" href="/assets/fonts/Lora-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-   <link rel="preload" href="/assets/fonts/Lato-Black.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+   <link rel="preload" href="/assets/src/fonts/GothamRounded-Book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+   <link rel="preload" href="/assets/src/fonts/GothamRounded-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
  
    {# Head Block (Used mainly for Schema) #}
      {% block head %}
@@ -134,17 +134,21 @@
    <![endif]-->
  
    {# Admin Bar #}
-     {{ adminbar() }}
+     {# {{ adminbar() }} #}
    {# /Admin Bar #}
  
    {# Skip to Content #}
      <a href="#content" class="skip-to-content">Skip to content</a>
    {# /Skip to Content #}
+
+   {# Cookie notice #}
+    {% include 'includes/common/_cookie-notice' %}
+   {# /cookie notice #}
  
    {# Site Wrapper #}
      <div id="site" class="site-wrap">
        {# Site Header #}
-         {% include 'includes/_site-header' %}
+         {% include 'includes/globals/_site-header' %}
        {# /Site Header #}
  
        {# Site Main #}
@@ -157,10 +161,16 @@
        {# /Site Main #}
  
        {# Site Footer #}
-         {% include 'includes/_site-footer' %}
+         {% include 'includes/globals/_site-footer' %}
        {# /Site Footer #}
      </div>
    {# /Site Wrapper #}
+
+  {# Icons #}
+    <div class="u-sr-only">
+      {{ inline('assets/dist/icons/icons.svg') | raw }}
+    </div>
+  {# /Icons #}
  
    {# JS / No JS #}
      <script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
@@ -168,9 +178,9 @@
  
    {# JS Files #}
      {% if craft.app.config.general.devMode %}
-       {% do view.registerJsFile("/assets/js/dist/main.js?v=1.2.1") %}
+       {% do view.registerJsFile("/assets/dist/js/main.js") %}
      {% else %}
-       {% do view.registerJsFile("/assets/js/dist/main.min.js?v=1.2.1") %}
+       {% do view.registerJsFile("/assets/dist/js/main.js") %}
      {% endif %}
  
      {{ endBody() }}

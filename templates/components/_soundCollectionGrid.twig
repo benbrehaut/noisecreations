@@ -1,0 +1,21 @@
+{% if component.showSoundCollections %}
+
+  <h2>sound collections</h2>
+  {% set paidCat = craft.categories.slug('paid') %}
+  {% for collection in craft.entries.section('soundCollections').relatedTo(paidCat).all %}
+    {% include 'includes/common/_sound-collection-teaser' with {'collection': collection} %}
+  {% endfor %}
+
+  <h2>variety collections</h2>
+  {% set varCat = craft.categories.slug('variety') %}
+  {% for collection in craft.entries.section('soundCollections').relatedTo(varCat).all %}
+    {% include 'includes/common/_sound-collection-teaser' with {'collection': collection} %}
+  {% endfor %}
+
+  <h2>free collections</h2>
+  {% set freeCat = craft.categories.slug('free') %}
+  {% for collection in craft.entries.section('soundCollections').relatedTo(freeCat).all %}
+    {% include 'includes/common/_sound-collection-teaser' with {'collection': collection} %}
+  {% endfor %}
+
+{% endif %}

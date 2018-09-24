@@ -1,0 +1,11 @@
+.o-icon {
+  display: block;
+}
+
+.o-icon--light {
+  fill: $palette-tertiary !important;
+}
+
+.o-icon--dark {
+  fill: $palette-quaternary !important;
+}

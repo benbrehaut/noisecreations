@@ -1,0 +1,18 @@
+{% macro icon(name, width, height, class) %}
+  <svg class="o-icon o-icon--{{ name }} {{ class }}" width="{{ width|default(20) }}" height="{{ height|default(20) }}" role="img">
+    <use xlink:href="#{{ name }}"></use>
+  </svg>
+{% endmacro %}
+
+{% macro btn(text, url, version, class, type) %}
+  <a href="{{ url }}" class="btn btn-{{verison}} {{ class }}">{{ text }}</a>
+{% endmacro %}
+
+{% macro toggleArrow(arrowDir, class, href, text) %}
+  {% import _self as macro %}
+  <a href="{{ href }}" class="o-toggle-arrow {{ class }}" role="button" aria-label="{{ text }}">
+      <span class="o-toggle-arrow__wrap">
+        {{ macro.icon(arrowDir, '20px', '20px') }}
+      </span>
+  </a>
+{% endmacro %}

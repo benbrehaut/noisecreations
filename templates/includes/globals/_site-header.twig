@@ -1,0 +1,35 @@
+{% import 'includes/_macros' as macros  %}
+
+<header id="header" class="o-site-header" role="banner">
+  <div class="l-wrap l-wrap--expanded o-site-header__row">
+
+    <div class="o-site-header__logo">
+      <a href="/" rel="home" aria-label="Go to {{ siteName }} homepage">
+        {{ macros.icon('logo', '230px', '50px') }}
+      </a>
+    </div>
+
+    <button class="js-toggle-menu o-site-header-toggler" aria-label="Open Site Navigation Menu">
+      <span class="o-site-header-toggler__hamburger-line o-site-header-toggler__hamburger-line--top" aria-hidden="true"></span>
+      <span class="o-site-header-toggler__hamburger-line o-site-header-toggler__hamburger-line--middle" aria-hidden="true"></span>
+      <span class="o-site-header-toggler__hamburger-line o-site-header-toggler__hamburger-line--bottom" aria-hidden="true"></span>
+    </button>
+    
+    {% include 'includes/globals/_site-navigation-mobile' %}
+    {% include 'includes/globals/_site-navigation' %}
+
+    <ul class="o-site-header-social-list">
+      <li class="o-site-header-social-list__item">
+        <a href="{{ globalSettings.soundcloudUrl }}" target="_blank" rel="noopener" aria-label="Soundcloud">
+          {{ macros.icon('soundcloud', '35px', '27px', 'o-icon--light') }}
+        </a>
+      </li>
+      <li class="o-site-header-social-list__item">
+        <a href="{{ globalSettings.twitterUrl }}" target="_blank" rel="noopener" aria-label="Twitter">
+          {{ macros.icon('twitter', '22px', '17px', 'o-icon--light') }}
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</header>

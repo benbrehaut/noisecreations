@@ -1,0 +1,14 @@
+<section class="c-latest-sound-collections u-secondary-background">
+  <div class="l-wrap">
+    <div class="l-col l-col--sm-12 u-text-c">
+      <h2 class="c-latest-sound-collections__title">latest sound collections</h2>
+    </div>
+  </div>
+  <div class="l-wrap">
+    {% for collection in craft.entries.section('soundCollections').limit(3).all %}
+      <div class="l-col l-col--sm-12 l-col--md-4">
+        {% include 'includes/common/_sound-collection-teaser' with {'collection': collection} %}
+      </div>
+    {% endfor %}
+  </div>
+</section>

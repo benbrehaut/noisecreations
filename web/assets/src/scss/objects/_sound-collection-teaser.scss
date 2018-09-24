@@ -1,0 +1,27 @@
+.o-sound-collection-teaser {
+  margin: rem-calc(20);
+  padding: rem-calc(46);
+  transition: 200ms ease-in-out;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: $global-box-shadow;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+  }
+
+  &:hover {
+    background-color: $palette-tertiary;
+  }
+
+  &:hover:before {
+    transition: 200ms ease-in-out;
+    opacity: 1;
+  }
+}

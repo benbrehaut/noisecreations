@@ -1,0 +1,9 @@
+<div class="o-sound-collection-teaser u-text-c">
+  <h3 class="o-sound-collection-teaser__title">{{ collection.title }}</h3>
+  {% if collection.soundCollectionPreviewImage|length %}
+    <a href="{{ collection.url }}"><img src="{{ collection.soundCollectionPreviewImage.one.getUrl() }}" width="{{ collection.soundCollectionPreviewImage.one.width() }}" height="{{ collection.soundCollectionPreviewImage.one.height() }}" alt="{{ collection.title }} box art" class="o-sound-collection-teaser__box"></a>
+  {% endif %}
+  <div class="o-sound-collection-teaser__action">
+    <a href="{{ collection.url }}" class="o-btn o-btn-primary">view collection</a>
+  </div>
+</div>

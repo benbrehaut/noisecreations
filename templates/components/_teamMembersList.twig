@@ -1,0 +1,24 @@
+<div class="l-wrap">
+  {% for member in craft.entries.section('people').all %}
+    <div class="l-col l-col--sm-12 l-col--md-6">
+        <div class="team-member">
+          {% if member.personImage|length %}
+            <img src="{{ member.personImage.one().getUrl() }}" height="{{ member.personImage.height }}" width="{{ member.personImage.width }}" alt="{{ member.title }}">
+          {% endif %}
+          <h2>{{ member.title }}</h2>
+          {{ member.personDescription }}
+          <ul>
+            <li>
+              <a href="{{ member.personWebsiteUrl }}"></a>
+            </li>
+            <li>
+              <a href="{{ member.personTwitterUrl }}"></a>
+            </li>
+            <li>
+                <a href="{{ member.personLinkedinUrl }}"></a>
+              </li>
+          </ul>
+        </div>
+    </div>
+  {% endfor %}
+</div>

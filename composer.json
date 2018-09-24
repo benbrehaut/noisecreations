@@ -3,7 +3,11 @@
     "craftcms/cms": "^3.0.0",
     "vlucas/phpdotenv": "^2.4.0",
     "luwes/craft3-inline": "v1.0.0",
-    "wbrowar/adminbar": "3.1.6"
+    "wbrowar/adminbar": "3.1.6",
+    "craftcms/contact-form": "2.2.2",
+    "enovatedesign/craft-style-inliner": "1.1.1.1",
+    "craftcms/contact-form-honeypot": "1.0.2",
+    "craftcms/redactor": "2.1.6"
   },
   "autoload": {
     "psr-4": {

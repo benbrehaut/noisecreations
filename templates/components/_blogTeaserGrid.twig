@@ -1,0 +1,7 @@
+<div class="l-wrap">
+  {% for article in craft.entries.section('articles').limit(12) %}
+    <div class="l-col l-col--sm-12 l-col--md-6 l-col--lg-4">
+      {% include 'includes/common/_article-teaser' with {'article': article} %}
+    </div>
+  {% endfor %}
+</div>

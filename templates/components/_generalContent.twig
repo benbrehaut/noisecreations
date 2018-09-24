@@ -1,0 +1,14 @@
+{% set generalContent = component %}
+
+<div class="js-scroll-to c-general-content">
+  <div class="l-wrap">
+    <div class="l-col l-col--sm-12 l-col--md-12 l-col--lg-10 l-col--lg-offset-1">
+      <section class="c-general-content__content">
+        {% if generalContent.generalContentTitle %}
+          <h2>{{ generalContent.generalContentTitle }}</h2>
+        {% endif %}
+          <div class="wysiwyg">{{ generalContent.generalContentContent }}</div>
+      </section>
+    </div>
+  </div>
+</div>

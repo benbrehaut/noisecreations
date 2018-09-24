@@ -1,0 +1,18 @@
+
+<img src="{{ entry.soundCollectionCaseImage.one().getUrl() }}" alt="">
+
+<h1>{{ entry.title }}</h1>
+<h2>{{ entry.soundCollectionMetaLine }}</h2>
+
+{% if entry.soundCollectionFeatures %}
+<ul>
+    {% for feature in entry.soundCollectionFeatures %}
+      <li>{{ feature.featureName }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<a href="{{ entry.soundCollectionListOfFiles.one.getUrl() }}" target="_blank" rel="noopener">View list of files in collection</a>
+
+{{ entry.soundCollectionDescription }}
+
+{{ entry.soundCollectionSoundCloudEmbed }}
