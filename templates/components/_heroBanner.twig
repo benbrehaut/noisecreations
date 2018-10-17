@@ -6,7 +6,7 @@
     <h1 class="c-hero-banner__title">{{ heroBanner.heroBannerTitle }}</h1>
 
     {% if heroBanner.heroBannerCtaLink and heroBanner.heroBannerCtaText %}
-      <a href="{{ heroBanner.heroBannerCtaLink.one().getUrl() }}" class="o-btn o-btn-accent">{{ heroBanner.heroBannerCtaText }}</a>
+      <a href="{{ heroBanner.heroBannerCtaLink.one().getUrl() }}" class="o-btn o-btn-accent c-hero-banner__btn">{{ heroBanner.heroBannerCtaText }}</a>
     {% endif %}
   </section>
 

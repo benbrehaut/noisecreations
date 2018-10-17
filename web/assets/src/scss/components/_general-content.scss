@@ -1,4 +1,12 @@
 .c-general-content {
-  padding: rem-calc(90 0);
+  padding: $spacing-large 0 $spacing-large;
   background-color: #fff;
+
+  @include breakpoint(md only) {
+    padding: $spacing-medium 0;
+  }
+
+  @include breakpoint(sm only) {
+    padding: $spacing-small 0;
+  }
 }

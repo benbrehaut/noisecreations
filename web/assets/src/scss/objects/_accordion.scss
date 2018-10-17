@@ -1,0 +1,83 @@
+/// ============================================================================
+// Object: _accordion
+/// ============================================================================
+
+.o-accordion {
+  display: block;
+  width: 100%;
+}
+
+.o-accordion__heading {
+  position: relative;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid rgba($palette-secondary, 0.2);
+  }
+}
+
+.o-accordion__btn.is-active ~ .o-accordion__icon:before,
+.o-accordion__btn.is-active ~ .o-accordion__icon:after {
+  background-color: $palette-tertiary;
+}
+
+.o-accordion__btn {
+  font-family: $font-family-secondary;
+  color: $palette-secondary;
+  background-color: transparent;
+  box-shadow: none;
+  appearance: none !important;
+  border: none;
+  border-top-left-radius: $global-border-radius;
+  border-top-right-radius: $global-border-radius;
+  padding: rem-calc(27 55 27 34);
+  font-size: rem-calc(22);
+  background-color: #F2F2F2;
+  display: block;
+  width: 100%;
+  transition: 130ms ease-in-out;
+
+  &.is-active {
+    background-color: $palette-primary;
+    color: $palette-tertiary;
+  }
+}
+
+.o-accordion__btn.is-active + .o-accordion__icon {
+  transform: rotate(45deg);
+}
+
+.o-accordion__icon {
+  position: absolute;
+  top: 33%;
+  right: 25px;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: rem-calc(2);
+    height: 25px;
+    background-color: $palette-primary;
+    display: block;
+    border-radius: $global-border-radius;
+  }
+
+  &:after {
+    transform: rotate(90deg);
+  }
+}
+
+.o-accordion__panel {
+  background-color: $palette-tertiary;
+  width: 100%;
+  padding: rem-calc(25);
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+
+  p:last-of-type {
+    margin: 0;
+  }
+}

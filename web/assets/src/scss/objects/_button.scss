@@ -3,14 +3,9 @@
 /// ============================================================================
 
 .o-btn {
-  appearance: none;
-  background: transparent;
-  margin: 0;
-  padding: 0;
-  border: 0;
+  @include btn-reset;
   border-radius: $global-border-radius;
   display: inline-block;
-  text-decoration: none;
   line-height: $line-height-base;
   font-family: $font-family-secondary;
   font-size: rem-calc(18);
@@ -36,4 +31,26 @@
   @include hocus {
     background-color: #F6F7F8;
   }
+}
+
+.o-btn-price {
+  font-size: rem-calc(14);
+  padding: 0;
+}
+
+.o-btn-price__text,
+.o-btn-price__price {
+  display: inline-block;
+}
+
+.o-btn-price__text {
+  padding: rem-calc(12 25);
+}
+
+.o-btn-price__price {
+  background-color: $palette-tertiary;
+  color: $palette-secondary;
+  border-top-right-radius: $global-border-radius;
+  border-bottom-right-radius: $global-border-radius;
+  padding: rem-calc(12 10);
 }

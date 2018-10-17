@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "91b9e19c9c93844dc121833f0ec4b494",
+    "content-hash": "84f85564ba7ca7833f7f1f054c51afaa",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -302,7 +302,7 @@
             "version": "3.0.19",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/24ce69a3150fcbed51cd71e13db754fe169423c2",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/d003a911e5fa77b0de575d2f2096f30a4798e135",
                 "reference": "24ce69a3150fcbed51cd71e13db754fe169423c2",
                 "shasum": ""
             },
@@ -1384,6 +1384,59 @@
                 "issues": "https://github.com/luwes/craft3-inline/issues"
             },
             "time": "2017-03-27T01:40:26+00:00"
+        },
+        {
+            "name": "matt-west/craft-recaptcha",
+            "version": "1.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/matt-west/craft-recaptcha/zipball/cd7a4a717bcccdb14f8631e0f914d2af0b50ec96",
+                "reference": "cd7a4a717bcccdb14f8631e0f914d2af0b50ec96",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-RC1",
+                "guzzlehttp/guzzle": "^6.3"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "reCAPTCHA",
+                "handle": "recaptcha",
+                "hasCpSettings": true,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/matt-west/craft-recaptcha/master/CHANGELOG.md",
+                "components": {
+                    "craftRecaptchaService": "mattwest\\craftrecaptcha\\services\\CraftRecaptchaService"
+                },
+                "class": "mattwest\\craftrecaptcha\\CraftRecaptcha"
+            },
+            "autoload": {
+                "psr-4": {
+                    "mattwest\\craftrecaptcha\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matt West",
+                    "homepage": "https://mattwest.io"
+                }
+            ],
+            "description": "Integrate Google’s reCAPTCHA into your forms.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft recaptcha",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "docs": "https://github.com/matt-west/craft-recaptcha/blob/master/README.md",
+                "issues": "https://github.com/matt-west/craft-recaptcha/issues"
+            },
+            "time": "2018-08-22T07:16:24+00:00"
         },
         {
             "name": "mikehaertl/php-shellcommand",

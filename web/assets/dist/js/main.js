@@ -2289,6 +2289,44 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     return e.$ === w && (e.$ = Kt), t && e.jQuery === w && (e.jQuery = Jt), w;
   }, t || (e.jQuery = e.$ = w), w;
 });
+'use strict';
+
+var elem = {
+  heading: document.querySelectorAll('.js-accordion-heading'),
+  btn: document.querySelectorAll('.js-accordion-btn'),
+  panel: document.querySelectorAll('.js-accordion-panel'),
+  activeClass: 'is-active'
+};
+
+elem.btn.forEach(function (accordion) {
+  accordion.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    var btn = event.target;
+    var panel = btn.parentNode.nextElementSibling;
+
+    if (btn.classList.contains(elem.activeClass)) {
+      btn.classList.remove(elem.activeClass);
+      panel.classList.remove(elem.activeClass);
+
+      btn.setAttribute('aria-expanded', false);
+      panel.setAttribute('aria-hidden', true);
+    } else {
+      btn.classList.add(elem.activeClass);
+      panel.classList.add(elem.activeClass);
+
+      btn.setAttribute('aria-expanded', true);
+      panel.setAttribute('aria-hidden', false);
+    }
+  });
+});
+"use strict";
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var contactForm = function contactForm() {
+  _classCallCheck(this, contactForm);
+};
 "use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2416,11 +2454,36 @@ function scrollDown(area) {
 var button = document.querySelector('.js-hero-banner-icon'),
     area = document.querySelector('.js-scroll-to');
 
-button.addEventListener('click', function (e) {
+if (button) {
+  button.addEventListener('click', function (e) {
+    e.preventDefault();
+    scrollDown(area);
+  });
+}
+'use strict';
+
+var menuBtn = document.querySelector('.js-toggle-menu'),
+    mobileMenu = document.querySelector('.js-site-nav-mobile');
+
+menuBtn.addEventListener('click', openMenu);
+
+function openMenu(e) {
   e.preventDefault();
-  scrollDown(area);
+
+  this.classList.toggle('is-active');
+  mobileMenu.classList.toggle('is-active');
+}
+
+var mobileSecondaryAction = document.querySelectorAll('.js-site-nav-mobile-open-secondary');
+
+mobileSecondaryAction.forEach(function (btn) {
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    this.classList.toggle('is-active');
+    this.nextElementSibling.classList.toggle('is-active');
+  });
 });
-"use strict";
 'use strict';
 
 console.log('From main.js');

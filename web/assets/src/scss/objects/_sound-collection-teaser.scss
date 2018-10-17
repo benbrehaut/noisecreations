@@ -1,8 +1,18 @@
 .o-sound-collection-teaser {
   margin: rem-calc(20);
-  padding: rem-calc(46);
+  padding: rem-calc(45 16);
   transition: 200ms ease-in-out;
   position: relative;
+
+  * {
+    position: relative;
+    z-index: 1;
+  }
+
+  @include breakpoint(md down) {
+    padding: rem-calc(20);
+    margin: 0;
+  }
 
   &:before {
     content: '';
@@ -14,14 +24,38 @@
     box-shadow: $global-box-shadow;
     opacity: 0;
     transition: 200ms ease-in-out;
+    z-index: -1; // show hover state does not stop anchor tags being clickable
   }
 
   &:hover {
-    background-color: $palette-tertiary;
+    background-color: #fff;
   }
 
   &:hover:before {
     transition: 200ms ease-in-out;
     opacity: 1;
+    z-index: 0;
+  }
+}
+
+.o-sound-collection-teaser__box {
+  padding: rem-calc(0 46);
+  margin-bottom: rem-calc(25);
+
+  @include breakpoint(md down) {
+    padding: rem-calc(0);
+  }
+}
+
+.o-sound-collection-teaser__title {
+  margin-bottom: rem-calc(20);
+}
+
+.o-sound-collection-teaser__title a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
   }
 }

@@ -178,7 +178,7 @@
  
    {# JS Files #}
      {% if craft.app.config.general.devMode %}
-       {% do view.registerJsFile("/assets/dist/js/main.js") %}
+       {% do view.registerJsFile("/assets/dist/js/main.js", {"async":"async"}) %}
      {% else %}
        {% do view.registerJsFile("/assets/dist/js/main.js") %}
      {% endif %}

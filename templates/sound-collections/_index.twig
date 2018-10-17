@@ -1,18 +1,44 @@
 
-<img src="{{ entry.soundCollectionCaseImage.one().getUrl() }}" alt="">
+{#
+ # Sound Collection template
+ # -------------------
+ #
+ # This template gets loaded whenever a News entry’s URL is
+ # requested. That’s because the News section’s Template setting is
+ # set to “news/_entry”, the path to this template.
+ #
+ # When this template is loaded, it will already have an ‘entry’
+ # variable, set to the requested News entry.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://craftcms.com/docs/routing
+ #}
 
-<h1>{{ entry.title }}</h1>
-<h2>{{ entry.soundCollectionMetaLine }}</h2>
+ {% set metaTitle = entry.metaTitle %}
+ {% set title = entry.title %}
+ {% set metaDescription = entry.metaDescription %}
+ {% if entry.metaBanner|length %}
+   {% set metaBanner = entry.metaBanner.one().getUrl() %}
+ {% endif %}
+ 
+ {% extends "includes/_layout" %}
+ 
+ {% block content %}
+  {% include 'sound-collections/_hero-banner' %}
 
-{% if entry.soundCollectionFeatures %}
-<ul>
-    {% for feature in entry.soundCollectionFeatures %}
-      <li>{{ feature.featureName }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-<a href="{{ entry.soundCollectionListOfFiles.one.getUrl() }}" target="_blank" rel="noopener">View list of files in collection</a>
+  {% include 'sound-collections/_menu' %}
 
-{{ entry.soundCollectionDescription }}
+  <article class="c-product-content">
+    <div class="l-wrap">
+      <div class="l-col l-col--sm-12 l-col--md-6">
+        {{ entry.soundCollectionDescription }}
 
-{{ entry.soundCollectionSoundCloudEmbed }}
+        {{ entry.soundCollectionSoundCloudEmbed }}
+      </div>
+      <div class="l-col l-col--sm-12 l-col--md-6">
+        {% include 'sound-collections/_accordion' %}
+      </div>
+    </div>
+  </article>
+
+ {% endblock %}

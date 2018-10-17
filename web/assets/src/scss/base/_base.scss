@@ -73,6 +73,7 @@ h6 {
   font-weight: normal;
   color: $palette-paragraph;
   margin-bottom: rem-calc(15);
+  line-height: normal;
 }
 
 ul {
@@ -136,9 +137,42 @@ a {
 /// ============================================================================
 /// Form Elemenets
 /// ============================================================================
+$input-border-color: #E1E4E6;
+
 label {
   display: block;
   margin: 0;
+}
+
+#{text-inputs()},
+textarea {
+  appearance: none;
+  display: block;
+  line-height: normal;
+  box-shadow: none;
+  border-radius: $global-border-radius;
+  border-width: 2px;
+  border-style: solid;
+  border-color: $input-border-color;
+  color: $palette-secondary;
+  width: 100%;
+  padding: rem-calc(13.5 25 13.5 17);
+  transition: 150ms ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid darken($input-border-color, 10);
+  }
+
+  &:focus {
+    border: 2px solid $palette-secondary;
+    outline: none;
+  }
+
+  &::placeholder {
+    font-family: $font-family-secondary;
+    color: $palette-secondary;
+  }
 }
 
 select {
@@ -166,6 +200,11 @@ select {
 // IE Fix / Hack
 select::-ms-expand {
   display: none;
+}
+
+textarea {
+  min-height: rem-calc(209);
+  resize: vertical;
 }
 
 /// ============================================================================

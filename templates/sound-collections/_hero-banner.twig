@@ -1,0 +1,26 @@
+  <header class="c-product-hero-banner" role="banner">
+    <div class="l-wrap">
+      <div class="l-col l-col--sm-12 l-col--md-6 c-product-hero-banner__image">
+        <img src="{{ entry.soundCollectionCaseImage.one().getUrl() }}" alt="{{ entry.title }}">
+      </div>
+      <div class="l-col l-col--sm-12 l-col--md-6 c-product-hero-banner__info">
+          <div class="c-product-hero-banner__intro">
+            <h1 class="u-text-caps c-product-hero-banner__title">{{ entry.title }}</h1>
+            <h2 class="u-text-caps o-heading-5 c-product-hero-banner__heading">{{ entry.soundCollectionMetaLine }}</h2>
+          </div>
+
+          <h3 class="o-heading-5 u-text-caps c-product-hero-banner__byline">Key Features</h3>
+          {% if entry.soundCollectionFeatures %}
+            <ul class="c-product-hero-banner-features">
+                {% for feature in entry.soundCollectionFeatures %}
+                  <li class="c-product-hero-banner-features__feature">{{ feature.featureName }}</li>
+                {% endfor %}
+            </ul>
+          {% endif %}
+
+          <a href="{{ entry.soundCollectionListOfFiles.one.getUrl() }}" target="_blank" rel="noopener" class="c-product-hero-banner-features__pdf">View list of files in collection</a>
+
+          {% include 'sound-collections/_buy-btn' %}
+      </div>
+    </div>
+  </header>

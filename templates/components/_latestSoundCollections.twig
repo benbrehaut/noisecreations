@@ -6,7 +6,7 @@
   </div>
   <div class="l-wrap">
     {% for collection in craft.entries.section('soundCollections').limit(3).all %}
-      <div class="l-col l-col--sm-12 l-col--md-4">
+      <div class="l-col l-col--sm-12 l-col--md-6 l-col--lg-4">
         {% include 'includes/common/_sound-collection-teaser' with {'collection': collection} %}
       </div>
     {% endfor %}

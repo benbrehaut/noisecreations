@@ -1,4 +1,11 @@
 .c-latest-sound-collections {
-  padding: rem-calc(90 0);
-  background-color: #F6F7F8;
+  padding: $spacing-large 0;
+
+  @include breakpoint(md only) {
+    padding: $spacing-medium 0;
+  }
+
+  @include breakpoint(sm only) {
+    padding: $spacing-small 0;
+  }
 }

@@ -8,7 +8,7 @@
 /// These should only be referenced in this file
 /// @access private
 /// ============================================================================
-$red: #b74a48 !default;
+$red: #D64541 !default;
 $orange: #ffae00 !default;
 $green: #1E824C !default;
 $blue: #4F5962;
@@ -83,6 +83,15 @@ $z-stack: site, skipToContent, siteHeader, siteMenu, modal;
 /// ============================================================================
 $global-border-radius: 5px;
 $global-box-shadow: 0px 0px 24px rgba(79, 89, 98, 0.15);
+
+/// ============================================================================
+/// Spacing Variables
+/// Spacing variables with components etc.
+/// @access public
+/// ============================================================================
+$spacing-large: rem-calc(90);
+$spacing-medium: rem-calc(60);
+$spacing-small: rem-calc(47);
 
 /// ============================================================================
 /// Layout & Grid

@@ -6,6 +6,10 @@ $active-color: #F4D03F;
 .o-site-nav {
   position: relative;
   margin-top: -7px;
+
+  @include breakpoint(md down) {
+    display: none;
+  }
 }
 
 .o-site-nav__item {

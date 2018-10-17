@@ -1,21 +1,59 @@
 {% if component.showSoundCollections %}
 
-  <h2>sound collections</h2>
-  {% set paidCat = craft.categories.slug('paid') %}
-  {% for collection in craft.entries.section('soundCollections').relatedTo(paidCat).all %}
-    {% include 'includes/common/_sound-collection-teaser' with {'collection': collection} %}
-  {% endfor %}
+{# Normal Collections #}
+  <div class="c-sound-collection-grid u-primary-background">
+    {# Title #}
+      <section class="l-wrap">
+        <div class="l-col u-text-c">
+          <h2 class="c-sound-collection-grid__title">flagship collections</h2>
+        </div>
+      </section>
+    {# /Title #}
 
-  <h2>variety collections</h2>
-  {% set varCat = craft.categories.slug('variety') %}
-  {% for collection in craft.entries.section('soundCollections').relatedTo(varCat).all %}
-    {% include 'includes/common/_sound-collection-teaser' with {'collection': collection} %}
-  {% endfor %}
+    {# Collection #}
+      <div class="l-wrap">
+        {% set paidCat = craft.categories.slug('paid') %}
+        {% for collection in craft.entries.section('soundCollections').relatedTo(paidCat).all %}
+          <div class="l-col l-col--sm-12 l-col--md-6 l-col--lg-4">
+            {% include 'includes/common/_sound-collection-teaser' with {'collection': collection} %}
+          </div>
+        {% endfor %}
+      </div>
+    {# Collection #}
+  </div>
+{# /Normal Collections #}
 
-  <h2>free collections</h2>
-  {% set freeCat = craft.categories.slug('free') %}
-  {% for collection in craft.entries.section('soundCollections').relatedTo(freeCat).all %}
-    {% include 'includes/common/_sound-collection-teaser' with {'collection': collection} %}
-  {% endfor %}
+  <div class="c-sound-collection-grid u-secondary-background">
+    <section class="l-wrap">
+      <div class="l-col u-text-c">
+        <h2>variety collections</h2>
+      </div>
+    </section>
 
+    <div class="l-wrap">
+      {% set varCat = craft.categories.slug('variety') %}
+      {% for collection in craft.entries.section('soundCollections').relatedTo(varCat).all %}
+        <div class="l-col l-col--sm-12 l-col--md-4">
+          {% include 'includes/common/_sound-collection-teaser' with {'collection': collection} %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="c-sound-collection-grid u-primary-background">
+    <section class="l-wrap">
+      <div class="l-col u-text-c">
+        <h2 class="u-text-c">free collections</h2>
+      </div>
+    </section>
+
+    <div class="l-wrap">
+      {% set freeCat = craft.categories.slug('free') %}
+      {% for collection in craft.entries.section('soundCollections').relatedTo(freeCat).all %}
+        <div class="l-col l-col--sm-12 l-col--md-4">
+          {% include 'includes/common/_sound-collection-teaser' with {'collection': collection} %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 {% endif %}

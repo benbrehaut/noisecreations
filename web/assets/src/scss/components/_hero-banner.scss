@@ -30,6 +30,11 @@ body.home .c-hero-banner {
 
 .c-hero-banner__title {
   color: $palette-tertiary;
+  margin-bottom: 0;
+}
+
+.c-hero-banner__btn {
+  margin-top: rem-calc(35);
 }
 
 .c-hero-banner__icon {

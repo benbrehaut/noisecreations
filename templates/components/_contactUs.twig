@@ -1,0 +1,31 @@
+{% import 'includes/_macros' as macros  %}
+{% set contactUs = component %}
+
+<div class="c-contact-us">
+  <div class="l-wrap">
+    <div class="l-col l-col--sm-12 l-col--lg-6">
+      {{ contactUs.contactUsContent }}
+
+      <ul class="u-unstyled-list c-contact-us-social">
+        <li class="c-contact-us-social__item">
+          <a href="{{ globalSettings.twitterUrl }}" class="c-contact-us-social__link">
+            {{ macros.icon('twitter', '43px', '35px', 'o-icon--dark c-contact-us-social__icon') }}
+            <span class="c-contact-us-social__text">{{ globalSettings.twitterUrl|lower|replace('https://twitter.com/', '@') }}</span>
+          </a>
+        </li>
+        <li class="c-contact-us-social__item">
+          <a href="{{ globalSettings.soundcloudUrl }}" class="c-contact-us-social__link">
+            {{ macros.icon('soundcloud', '43px', '35px', 'o-icon--dark c-contact-us-social__icon') }}
+            <span class="c-contact-us-social__text">{{ globalSettings.soundcloudUrl|lower|replace('https://soundcloud.com/', '') }}</span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+    <div class="l-col l-col--sm-12 l-col--lg-6">
+      <div class="o-card u-primary-background">
+        {% include 'includes/common/_contact-form' %}
+      </div>
+    </div>
+  </div>
+</div>

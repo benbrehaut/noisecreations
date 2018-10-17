@@ -1,0 +1,84 @@
+body.sound-collections {
+  background-color: #FFF;
+}
+
+// Hero Banner
+.c-product-hero-banner {
+  background-color: $palette-secondary;
+  color: $palette-tertiary;
+  padding: rem-calc(130 40);
+}
+
+.c-product-hero-banner__image {
+  padding: rem-calc(0 60);
+}
+
+.c-product-hero-banner__intro {
+  margin-bottom: rem-calc(55);
+}
+
+.c-product-hero-banner__heading {
+  font-family: $font-family-normal;
+}
+
+.c-product-hero-banner__title,
+.c-product-hero-banner__heading,
+.c-product-hero-banner__byline {
+  color: inherit;
+}
+
+.c-product-hero-banner-features {
+  @include unstyled-list;
+  padding-left: rem-calc(20);
+  margin-bottom: rem-calc(10);
+  font-size: rem-calc(18);
+  list-style-image: url('/assets/src/icons/arrow-right.svg') !important;
+}
+
+.c-product-hero-banner-features__feature {
+  padding-left: rem-calc(20);
+}
+
+.c-product-hero-banner-features__pdf {
+  color: inherit;
+  font-family: $font-family-secondary;
+}
+
+.c-product-nav {
+  padding: rem-calc(18 0);
+  background-color: $palette-tertiary;
+  box-shadow: $global-box-shadow;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.c-product-nav__wrap {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.c-product-nav__info {
+  display: flex;
+  align-items: center;
+}
+
+.c-product-nav__back {
+  font-size: rem-calc(14);
+  color: $palette-secondary;
+  margin: 0;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.c-product-nav__title {
+  margin: rem-calc(0 30 0 0);
+}
+
+// Content
+.c-product-content {
+  margin: $spacing-medium 0;
+}

@@ -15,8 +15,10 @@ function scrollDown(area) {
  */
 const button = document.querySelector('.js-hero-banner-icon'),
       area = document.querySelector('.js-scroll-to')
-
-button.addEventListener('click', (e) => { 
-  e.preventDefault();
-  scrollDown(area)
-});
+      
+if (button) {
+  button.addEventListener('click', (e) => { 
+    e.preventDefault();
+    scrollDown(area)
+  });
+}

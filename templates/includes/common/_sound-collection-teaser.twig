@@ -1,9 +1,11 @@
 <div class="o-sound-collection-teaser u-text-c">
-  <h3 class="o-sound-collection-teaser__title">{{ collection.title }}</h3>
   {% if collection.soundCollectionPreviewImage|length %}
-    <a href="{{ collection.url }}"><img src="{{ collection.soundCollectionPreviewImage.one.getUrl() }}" width="{{ collection.soundCollectionPreviewImage.one.width() }}" height="{{ collection.soundCollectionPreviewImage.one.height() }}" alt="{{ collection.title }} box art" class="o-sound-collection-teaser__box"></a>
+    <a href="{{ collection.url }}" tabindex="-1"><img src="{{ collection.soundCollectionPreviewImage.one.getUrl() }}" width="{{ collection.soundCollectionPreviewImage.one.width() }}" height="{{ collection.soundCollectionPreviewImage.one.height() }}" alt="{{ collection.title }} box art" class="o-sound-collection-teaser__box"></a>
   {% endif %}
+
+  <h3 class="o-heading-4 o-sound-collection-teaser__title u-text-caps"><a href="{{ collection.url }}">{{ collection.title }}</a></h3>
+
   <div class="o-sound-collection-teaser__action">
-    <a href="{{ collection.url }}" class="o-btn o-btn-primary">view collection</a>
+    <a href="{{ collection.url }}" class="o-btn o-btn-primary" tabindex="-1">view collection</a>
   </div>
 </div>

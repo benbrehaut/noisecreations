@@ -1,0 +1,11 @@
+.c-sound-collection-grid {
+  padding: $spacing-large 0 $spacing-large;
+
+  @include breakpoint(md only) {
+    padding: $spacing-medium 0;
+  }
+
+  @include breakpoint(sm only) {
+    padding: $spacing-small 0;
+  }
+}

@@ -28,7 +28,13 @@
 
 .o-site-footer__col {
   @include breakpoint(md down) {
-    margin-bottom: rem-calc(25);
+    margin-bottom: rem-calc(45);
+  }
+
+  &--no-spacing {
+    @include breakpoint(md down) {
+      margin-bottom: rem-calc(0);
+    }
   }
 }
 
@@ -48,9 +54,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @include breakpoint(sm down) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .o-pre-footer__title {
   color: $palette-tertiary;
   margin: 0;
+
+  @include breakpoint(sm down) {
+    margin-bottom: rem-calc(15);
+  }
+}
+
+.o-pre-footer__btn {
+  @include breakpoint(sm down) {
+    flex: 1 0 auto;
+  }
+
 }
