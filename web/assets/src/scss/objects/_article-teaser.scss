@@ -1,0 +1,32 @@
+.o-article-teaser {
+  width: 100%;
+  margin-bottom: rem-calc(70);
+}
+
+.o-article-teaser__date {
+  color: #757575;
+  font-size: rem-calc(18);
+  font-family: $font-family-secondary;
+  margin-bottom: rem-calc(10);
+  display: block;
+}
+
+.o-article-teaser__content {
+  padding: rem-calc(20 10);
+  max-width: 80%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.o-article-teaser__heading {
+  color: $palette-secondary;
+
+  a {
+    color: currentColor;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

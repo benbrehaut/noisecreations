@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 
   &:before {
     position: absolute;
@@ -26,6 +27,12 @@ body.home .c-hero-banner {
 .c-hero-banner__wrap {
   position: relative;
   z-index: 1;
+
+  &--contained {
+    max-width: rem-calc(900);
+    margin: 0 auto;
+    width: 100%;
+  }
 }
 
 .c-hero-banner__title {
@@ -40,4 +47,48 @@ body.home .c-hero-banner {
 .c-hero-banner__icon {
   @include horizontal-center;
   bottom: 25px;
+}
+
+.c-hero-banner__supporting {
+  display: grid;
+  grid-template-columns: 80px auto auto auto auto auto auto;
+  grid-template-areas: "avatar author published updated";
+  grid-gap: .5rem 2rem;
+  align-items: center;
+  color: $palette-tertiary;
+  margin-top: rem-calc(35);
+
+  p {
+    margin-bottom: 0;
+  }
+
+  time {
+    display: block;
+  }
+
+  @include breakpoint(sm only) {
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "avatar author" "published updated";
+  }
+}
+
+.c-hero-banner__avater {
+  grid-area: avatar;
+  margin-top: rem-calc(10);
+
+  img {
+    border-radius: 50%;
+  }
+}
+
+.c-hero-banner__author {
+  grid-area: author;
+}
+
+.c-hero-banner__posted {
+  grid-area: published;
+}
+
+.c-hero-banner__updated {
+  grid-area: updated;
 }

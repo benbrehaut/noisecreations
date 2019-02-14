@@ -20,7 +20,10 @@
 
           <a href="{{ entry.soundCollectionListOfFiles.one.getUrl() }}" target="_blank" rel="noopener" class="c-product-hero-banner-features__pdf">View list of files in collection</a>
 
-          {% include 'sound-collections/_buy-btn' %}
+          <div class="c-product-hero-banner__cta">
+            {% include 'sound-collections/_buy-btn' %}
+            <p class="c-product-hero-banner__notice">[Download Only]</p>
+          </div>
       </div>
     </div>
   </header>

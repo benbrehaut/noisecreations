@@ -1,4 +1,3 @@
-
 {#
  # Index template
  # -------------------
@@ -13,20 +12,17 @@
  # See this page for more details on how Craft routes requests:
  # http://craftcms.com/docs/routing
  #}
-
- {% set metaTitle = entry.metaTitle %}
- {% set title = entry.title %}
- {% set metaDescription = entry.metaDescription %}
- {% if entry.metaBanner|length %}
-   {% set metaBanner = entry.metaBanner.one().getUrl() %}
- {% endif %}
- 
- {% extends "includes/_layout" %}
- 
- {% block content %}
+{% set metaTitle = entry.metaTitle %}
+{% set title = entry.title %}
+{% set metaDescription = entry.metaDescription %}
+{% if entry.metaBanner|length %}
+  {% set metaBanner = entry.metaBanner.one().getUrl() %}
+{% endif %}
+{% extends "includes/_layout" %}
+{% block content %}
   {% for component in entry.selectComponent.all() %}
-    <div id="{{ entry|lower }}-{{ component.type.handle|lower }}-{{component}}" class="component component--{{ component.type.handle|lower }}">
+    <div id="{{ entry|lower|replace('/[^a-zA-Z0-9 ]/', '-') }} {{ component.type.handle|lower }}-{{component}}" class="component component--{{ component.type.handle|lower }}">
       {% include ('components/_' ~ component.type.handle) %}
     </div>
   {% endfor %}
- {% endblock %}
+{% endblock %}

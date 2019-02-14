@@ -2291,35 +2291,38 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 'use strict';
 
-var elem = {
-  heading: document.querySelectorAll('.js-accordion-heading'),
-  btn: document.querySelectorAll('.js-accordion-btn'),
-  panel: document.querySelectorAll('.js-accordion-panel'),
-  activeClass: 'is-active'
-};
+(function () {
 
-elem.btn.forEach(function (accordion) {
-  accordion.addEventListener('click', function (event) {
-    event.preventDefault();
+  var elem = {
+    heading: document.querySelectorAll('.js-accordion-heading'),
+    btn: document.querySelectorAll('.js-accordion-btn'),
+    panel: document.querySelectorAll('.js-accordion-panel'),
+    activeClass: 'is-active'
+  };
 
-    var btn = event.target;
-    var panel = btn.parentNode.nextElementSibling;
+  elem.btn.forEach(function (accordion) {
+    accordion.addEventListener('click', function (event) {
+      event.preventDefault();
 
-    if (btn.classList.contains(elem.activeClass)) {
-      btn.classList.remove(elem.activeClass);
-      panel.classList.remove(elem.activeClass);
+      var btn = event.target;
+      var panel = btn.parentNode.nextElementSibling;
 
-      btn.setAttribute('aria-expanded', false);
-      panel.setAttribute('aria-hidden', true);
-    } else {
-      btn.classList.add(elem.activeClass);
-      panel.classList.add(elem.activeClass);
+      if (btn.classList.contains(elem.activeClass)) {
+        btn.classList.remove(elem.activeClass);
+        panel.classList.remove(elem.activeClass);
 
-      btn.setAttribute('aria-expanded', true);
-      panel.setAttribute('aria-hidden', false);
-    }
+        btn.setAttribute('aria-expanded', false);
+        panel.setAttribute('aria-hidden', true);
+      } else {
+        btn.classList.add(elem.activeClass);
+        panel.classList.add(elem.activeClass);
+
+        btn.setAttribute('aria-expanded', true);
+        panel.setAttribute('aria-hidden', false);
+      }
+    });
   });
-});
+})();
 "use strict";
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2426,64 +2429,74 @@ var CookieBanner = function () {
 
   return CookieBanner;
 }();
-
-var banner = document.querySelector('.js-cookie-banner'),
-    bannerCloseBtn = document.querySelector('.js-cookie-banner-close'),
-    activeClass = 'is-active';
-
-var cookieBanner = new CookieBanner(banner, bannerCloseBtn, activeClass);
-
-cookieBanner.init();
 'use strict';
 
-/**
- * Function which moves the user window positon down to an area
- * @param {HTMLElement} area 
- */
-function scrollDown(area) {
-  window.scroll({
-    behavior: 'smooth',
-    left: 0,
-    top: area.offsetTop
-  });
-}
+(function () {
 
-/**
- * Button which activates the scroll down
- */
-var button = document.querySelector('.js-hero-banner-icon'),
-    area = document.querySelector('.js-scroll-to');
+  /**
+   * Function which moves the user window positon down to an area
+   * @param {HTMLElement} area 
+   */
+  function scrollDown(area) {
+    window.scroll({
+      behavior: 'smooth',
+      left: 0,
+      top: area.offsetTop
+    });
+  }
 
-if (button) {
-  button.addEventListener('click', function (e) {
-    e.preventDefault();
-    scrollDown(area);
-  });
-}
+  /**
+   * Button which activates the scroll down
+   */
+  var button = document.querySelector('.js-hero-banner-icon'),
+      area = document.querySelector('.js-scroll-to');
+
+  if (button) {
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+      scrollDown(area);
+    });
+  }
+})();
 'use strict';
 
-var menuBtn = document.querySelector('.js-toggle-menu'),
-    mobileMenu = document.querySelector('.js-site-nav-mobile');
+(function () {
 
-menuBtn.addEventListener('click', openMenu);
+  var menuBtn = document.querySelector('.js-toggle-menu'),
+      mobileMenu = document.querySelector('.js-site-nav-mobile');
 
-function openMenu(e) {
-  e.preventDefault();
+  menuBtn.addEventListener('click', openMenu);
 
-  this.classList.toggle('is-active');
-  mobileMenu.classList.toggle('is-active');
-}
-
-var mobileSecondaryAction = document.querySelectorAll('.js-site-nav-mobile-open-secondary');
-
-mobileSecondaryAction.forEach(function (btn) {
-  btn.addEventListener('click', function (e) {
+  function openMenu(e) {
     e.preventDefault();
 
     this.classList.toggle('is-active');
-    this.nextElementSibling.classList.toggle('is-active');
+    mobileMenu.classList.toggle('is-active');
+  }
+
+  var mobileSecondaryAction = document.querySelectorAll('.js-site-nav-mobile-open-secondary');
+
+  mobileSecondaryAction.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      this.classList.toggle('is-active');
+      this.nextElementSibling.classList.toggle('is-active');
+    });
   });
-});
+})();
 'use strict';
 
-console.log('From main.js');
+(function () {
+
+  /**
+   * Cookie Banner
+   */
+  var banner = document.querySelector('.js-cookie-banner'),
+      bannerCloseBtn = document.querySelector('.js-cookie-banner-close'),
+      activeClass = 'is-active';
+
+  var cookieBanner = new CookieBanner(banner, bannerCloseBtn, activeClass);
+
+  cookieBanner.init();
+});

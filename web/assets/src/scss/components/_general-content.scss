@@ -1,6 +1,5 @@
 .c-general-content {
   padding: $spacing-large 0 $spacing-large;
-  background-color: #fff;
 
   @include breakpoint(md only) {
     padding: $spacing-medium 0;

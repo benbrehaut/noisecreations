@@ -4,8 +4,15 @@
 
 .o-icon--light {
   fill: $palette-tertiary !important;
+  color: $palette-tertiary !important;
+}
+
+.o-icon--shaded {
+  fill: #D7D7D7 !important;
+  color: #D7D7D7 !important;
 }
 
 .o-icon--dark {
   fill: $palette-quaternary !important;
+  color: $palette-quaternary !important;
 }

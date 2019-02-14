@@ -47,6 +47,14 @@
 
 .o-site-header-social-list__link {
   transition: 200ms ease-in-out;
+
+  &:hover svg {
+    fill: $palette-secondary !important;
+  }
+
+  svg {
+    transition: 200ms ease-in-out;
+  }
 }
 
 // Hamburger Menu

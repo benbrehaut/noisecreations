@@ -1,0 +1,48 @@
+{% import 'includes/_macros' as macros  %}
+
+{% for entry in entry.articleAuthor %}
+  <div class="l-wrap">
+    <section class="l-col l-col--sm-12 l-col--md-12 l-col--lg-10 l-col--lg-offset-1">
+      <footer class="o-card c-article-author">
+        <section class="c-article-author__figure">
+          <img class="c-article-author__avatar" src="{{ entry.personImage.one().getUrl('articleAuthor') }}" alt="{{ entry.title }}" width="{{ entry.personImage.one().getWidth('articleAuthor') }}" height="{{ entry.personImage.one().getHeight('articleAuthor') }}">
+        </section>
+        <section class="c-article-author__bio">
+          <h2 class="o-heading-4">
+            {{ entry.title }}
+          </h2>
+          {{ entry.personBlogDescription }}
+      <ul class="o-social-list">
+        <li class="o-social-list__item">
+          <a href="{{ entry.personTwitterUrl }}" class="o-social-list__link" title="Share on Twitter" target="_blank" rel="noopener">
+            <span class="u-sr-only">Share on Twitter</span>
+            {{ macros.icon('twitter', '33px', '29px', 'o-icon--shaded') }}
+          </a>
+        </li>
+        <li class="o-social-list__item">
+          <a href="{{ entry.personLinkedinUrl }}" class="o-social-list__link" title="Share on LinkedIn" target="_blank" rel="noopener">
+            <span class="u-sr-only">Share on LinkedIn</span>
+            {{ macros.icon('linkedin', '29px', '29px', 'o-icon--shaded') }}
+          </a>
+        </li>
+      </ul>
+        </section>
+      </footer>
+    </section>
+  </div>
+{% endfor %}
+
+{% if entry.articleTags %}
+  <div class="l-wrap">
+    <div class="l-col l-col--sm-12 l-col--md-12 l-col--lg-10 l-col--lg-offset-1">
+      <h2>tags</h2>
+      <ul class="c-article-tags u-unstyled-list">
+      {% for tag in entry.articleTags %}
+        <li class="c-article-tags__tag">
+          <a href="{{ tag.slug }}" class="o-btn o-btn-primary">{{ tag.title }}</a>
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endif %}

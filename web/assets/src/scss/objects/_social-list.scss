@@ -1,0 +1,22 @@
+.o-social-list {
+  @include unstyled-list;
+
+  &__item {
+    display: inline-block;
+    vertical-align: middle;
+
+    &:not(:last-of-type) {
+      margin-right: rem-calc(30);
+    }
+  }
+
+  &__link:hover svg {
+    transition: all 200ms ease-in-out;
+    fill: $palette-secondary !important;
+    color: $palette-secondary !important;
+  }
+
+  svg {
+    transition: all 200ms ease-in-out;
+  }
+}

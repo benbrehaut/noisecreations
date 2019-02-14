@@ -1,4 +1,11 @@
 <article class="o-article-teaser" role="article">
-  <h2 class="o-article-teaser__title"><a href="{{ article.url }}">{{ article.title }}</a></h2>
-  <time class="o-article-teaser__date" datetime="{{ article.postDate | date('Y-m-d') }}">{{ article.postDate | date('d M Y') }}</time>
-</article>
+  <img src="{{ article.articleBanner.one().getUrl('blogTeaser') }}" alt="{{ article.title }}" width="{{ article.articleBanner.one().width('blogTeaser') }}" height="{{ article.articleBanner.one().height('blogTeaser') }}" class="o-article-teaser__img">
+    <div class="o-article-teaser__content o-card u-text-c">
+      <time class="o-article-teaser__date" datetime="{{ article.postDate | date('Y-m-d') }}">
+        {{ article.postDate | date('d M Y') }}</time>
+      <h2 class="o-article-teaser__heading o-heading-4">
+        <a href="{{ article.url }}">
+          {{ article.title }}</a>
+      </h2>
+    </div>
+  </article>

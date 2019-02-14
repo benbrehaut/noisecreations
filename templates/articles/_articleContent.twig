@@ -1,0 +1,31 @@
+{% import 'includes/_macros' as macros  %}
+
+<article class="l-wrap" role="article">
+  <section class="l-col l-col--sm-12 l-col--md-12 l-col--lg-7 l-col--lg-offset-3">
+    <div class="c-article wysiwyg">
+      {{ entry.articleContent }}
+    </div>
+    <div class="c-article-share u-text-c">
+      <ul class="o-social-list">
+        <li class="o-social-list__item">
+          <a href="https://www.facebook.com/sharer.php?u={{ entry.url }}" class="o-social-list__link" title="Share on Facebook" target="_blank" rel="noopener">
+            <span class="u-sr-only">Share on Facebook</span>
+            {{ macros.icon('facebook', '50px', '50px', 'o-icon--shaded') }}
+          </a>
+        </li>
+        <li class="o-social-list__item">
+          <a href="https://twitter.com/share?url={{ entry.url }}&text={{ entry.articleContent | raw | striptags | slice(0, 150) }}" class="o-social-list__link" title="Share on Twitter" target="_blank" rel="noopener">
+            <span class="u-sr-only">Share on Twitter</span>
+            {{ macros.icon('twitter', '58px', '47px', 'o-icon--shaded') }}
+          </a>
+        </li>
+        <li class="o-social-list__item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ entry.url }}" class="o-social-list__link" title="Share on LinkedIn" target="_blank" rel="noopener">
+            <span class="u-sr-only">Share on LinkedIn</span>
+            {{ macros.icon('linkedin', '50px', '50px', 'o-icon--shaded') }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</article>

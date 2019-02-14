@@ -59,19 +59,11 @@ class CookieBanner {
    * creates the cookie if not set already
    */
   createCookie() {
-      // set a new cookie
-      let expiry = new Date();
-      expiry.setTime(expiry.getTime() + (8760*60*60*1000)); 
-    
-      // Date()'s toGMTSting() method will format the date correctly for a cookie
-      document.cookie = "visited=1; expires=" + expiry.toGMTString();
+    // set a new cookie
+    let expiry = new Date();
+    expiry.setTime(expiry.getTime() + (8760 * 60 * 60 * 1000));
+
+    // Date()'s toGMTSting() method will format the date correctly for a cookie
+    document.cookie = "visited=1; expires=" + expiry.toGMTString();
   }
 }
-
-const banner = document.querySelector('.js-cookie-banner'),
-      bannerCloseBtn = document.querySelector('.js-cookie-banner-close'),
-      activeClass = 'is-active';
-
-const cookieBanner = new CookieBanner(banner, bannerCloseBtn, activeClass);
-
-cookieBanner.init();
