@@ -12,7 +12,7 @@
       <li class="o-site-nav-mobile__item u-text-caps {% if url(craft.app.request.pathInfo) == navItem.url %}is-active{% endif %}">
         <a href="{{ navItem.url }}" class="o-site-nav-mobile__link">{{ navItem.title }}</a>
         
-        <a href="#" role="button" class="js-site-nav-mobile-open-secondary o-site-nav-mobile-action" aria-label="Open sub menu">
+        {# <a href="#" role="button" class="js-site-nav-mobile-open-secondary o-site-nav-mobile-action" aria-label="Open sub menu">
           <span class="o-site-nav-mobile-action__line o-site-nav-mobile-action__line--top" aria-hidden="true"></span>
           <span class="o-site-nav-mobile-action__line o-site-nav-mobile-action__line--bottom" aria-hidden="true"></span>
         </a>
@@ -24,7 +24,7 @@
           <li class="o-site-nav-mobile-sub-menu__item">
             <a href="/" class="o-site-nav-mobile-sub-menu__link">ArcadiaMX</a>
           </li>
-        </ul>
+        </ul> #}
       </li>
     {% endfor %}
   </ul>

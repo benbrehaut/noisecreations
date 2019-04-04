@@ -1,0 +1,23 @@
+.c-blog-filter-bar {
+  background-color: #F6F7F8;
+  box-shadow: $global-box-shadow;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  padding: rem-calc(18 0);
+
+  &__label {
+    font-family: $font-family-secondary;
+    font-size: rem-calc(14);
+    display: inline-block;
+  }
+
+  &__dropdown {
+    display: inline-block;
+    width: auto;
+  }
+}
+
+.c-blog-teaser-grid {
+  padding: $spacing-small 0 $spacing-small;
+}

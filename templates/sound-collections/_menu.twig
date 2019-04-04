@@ -3,9 +3,8 @@
 <nav class="c-product-nav" role="navigation">
   <section class="l-wrap l-col c-product-nav__wrap">
     <h2 class="o-heading-6 u-text-caps c-product-nav__back">
-      <a href="/sound-collections">
-        {{ macros.icon('arrow-left') }}
-        Return to sound collections
+      <a href="{{ globalSettings.soundCollectionsPage.one().getUrl }}">
+        <span>{{ macros.icon('arrow-left', '10px', '10px') }}</span>Return to sound collections
       </a>
     </h2>
     <section class="c-product-nav__info">

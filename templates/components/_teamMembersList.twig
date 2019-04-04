@@ -1,34 +1,35 @@
 {% import 'includes/_macros' as macros  %}
 <section class="l-wrap">
   {% for member in craft.entries.section('people').all %}
-    <article class="l-col l-col--sm-12 l-col--md-6 l-col--lg-5 {% if loop.first %} l-col--lg-offset-1 {% endif %}" role="article">
-      <div class="o-card c-team-member">
+    <article class="l-col l-col--sm-12 l-col--md-6 l-col--lg-5 {% if loop.first %} l-col--lg-offset-1 {% endif %} c-team-member" role="article">
+      <div class="o-card c-team-member__card">
         {% if member.personImage|length %}
-          <header class="c-team-member-header">
-            <img src="{{ member.personImage.one().getUrl() }}" height="{{ member.personImage.height }}" width="{{ member.personImage.width }}" alt="{{ member.title }}"></header>
+          <header class="c-team-member__header u-text-c">
+            <img src="{{ member.personImage.one().getUrl() }}" height="{{ member.personImage.height }}" width="{{ member.personImage.width }}" alt="{{ member.title }}">
+          </header>
           {% endif %}
-          <div class="c-team-member-info">
+          <div class="c-team-member__info">
             <h2 class="u-text-c">
               {{ member.title }}</h2>
             {{ member.personDescription }}
           </div>
-          <ul class="c-team-member-social-list u-unstyled-list">
-            <li class="c-team-member-social-list__item">
-              <a href="{{ member.personWebsiteUrl }}" target="_blank">
+          <ul class="c-team-member__social o-social-list u-text-c">
+            <li class="o-social-list__item">
+              <a href="{{ member.personWebsiteUrl }}" class="o-social-list__link" target="_blank">
                 <span class="u-sr-only">Website URL</span>
-                {{ macros.icon('globe', '26px', '26px', 'o-icon--dark') }}
+                {{ macros.icon('globe', '50px', '47px', 'o-icon--dark') }}
               </a>
             </li>
-            <li class="c-team-member-social-list__item">
-              <a href="{{ member.personTwitterUrl }}">
+            <li class="o-social-list__item">
+              <a href="{{ member.personTwitterUrl }}" class="o-social-list__link" target="_blank" rel="noopener">
                 <span class="u-sr-only">Twitter URL</span>
-                {{ macros.icon('twitter', '26px', '26px', 'o-icon--dark') }}
+                {{ macros.icon('twitter', '57px', '44px', 'o-icon--dark') }}
               </a>
             </li>
-            <li class="c-team-member-social-list__item">
-              <a href="{{ member.personLinkedinUrl }}">
+            <li class="o-social-list__item">
+              <a href="{{ member.personLinkedinUrl }}" class="o-social-list__link" target="_blank" rel="noopener">
                 <span class="u-sr-only">LinkedIn URL</span>
-                {{ macros.icon('linkedin', '26px', '26px', 'o-icon--dark') }}
+                {{ macros.icon('linkedin', '50px', '47px', 'o-icon--dark') }}
               </a>
             </li>
           </ul>

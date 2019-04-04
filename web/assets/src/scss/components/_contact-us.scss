@@ -17,8 +17,16 @@
   font-size: rem-calc(18);
   text-decoration: none;
 
+  svg {
+    transition: 150ms ease-in-out;
+  }
+
   &:hover {
     text-decoration: underline;
+
+    svg {
+      fill: $palette-primary !important;
+    }
   }
 }
 

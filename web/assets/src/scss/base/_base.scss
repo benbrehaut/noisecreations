@@ -160,6 +160,10 @@ textarea {
   transition: 150ms ease-in-out;
   cursor: pointer;
 
+  &:valid {
+    border: 2px solid $palette-primary;
+  }
+
   &:hover {
     border: 2px solid darken($input-border-color, 10);
   }

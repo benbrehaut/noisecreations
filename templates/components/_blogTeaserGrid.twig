@@ -1,7 +1,20 @@
-<div class="l-wrap">
-  {% for article in craft.entries.section('articles').limit(12) %}
-    <div class="l-col l-col--sm-12 l-col--md-6 l-col--lg-4">
-      {% include 'includes/common/_article-teaser' with {'article': article} %}
+<nav class="c-blog-filter-bar" role="navigation">
+  <div class="l-wrap">
+    <div class="l-col">
+      <label for="filter-dropdown" class="c-blog-filter-bar__label u-text-caps">Filter aticles by: </label>
+      <select name="filter-dropdown" id="filter-dropdown" class="c-blog-filter-bar__dropdown">
+        <option value="year" selected>Year</option>
+      </select>
     </div>
-  {% endfor %}
+  </div>
+</nav>
+
+<div class="c-blog-teaser-grid">
+  <div class="l-wrap">
+    {% for article in craft.entries.section('articles').limit(12) %}
+      <div class="l-col l-col--sm-12 l-col--md-6 l-col--lg-4">
+        {% include 'includes/common/_article-teaser' with {'article': article} %}
+      </div>
+    {% endfor %}
+  </div>
 </div>

@@ -5,6 +5,11 @@
 .o-accordion {
   display: block;
   width: 100%;
+
+  .o-accordion__heading:first-of-type .o-accordion__btn {
+      border-top-left-radius: $global-border-radius;
+      border-top-right-radius: $global-border-radius;
+  }
 }
 
 .o-accordion__heading {
@@ -27,8 +32,6 @@
   box-shadow: none;
   appearance: none !important;
   border: none;
-  border-top-left-radius: $global-border-radius;
-  border-top-right-radius: $global-border-radius;
   padding: rem-calc(27 55 27 34);
   font-size: rem-calc(22);
   background-color: #F2F2F2;
@@ -42,7 +45,11 @@
   }
 }
 
-.o-accordion__btn.is-active + .o-accordion__icon {
+.o-accordion__btn.is-active + .o-accordion__icon:before {
+  transform: rotate(-45deg);
+}
+
+.o-accordion__btn.is-active + .o-accordion__icon:after {
   transform: rotate(45deg);
 }
 
@@ -60,6 +67,7 @@
     background-color: $palette-primary;
     display: block;
     border-radius: $global-border-radius;
+    transition: 200ms ease-in-out;
   }
 
   &:after {
