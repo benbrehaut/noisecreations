@@ -183,17 +183,27 @@ select {
   appearance: none;
   width: 100%;
   border-radius: 0;
-  border: 1px solid rgba($palette-border, 0.1);
+  border: none;
   color: $palette-paragraph;
   font-size: rem-calc(16);
   font-family: inherit;
   padding: rem-calc(13.5 45 13.5 13.5);
   height: auto;
   line-height: normal;
-  background-color: $palette-primary;
-  background-image: none;
+  background-color: $palette-tertiary;
+  border: 1px solid $palette-tertiary;
+  background-image: url('/assets/src/icons/arrow-down.svg');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 15px) 50%;
   background-clip: padding-box;
   transition: border-color 200ms ease-in-out;
+  box-shadow: $global-box-shadow;
+  border-radius: $global-border-radius;
+  text-transform: uppercase;
+  font-family: $font-family-secondary;
+  min-width: 170px;
+  width: 100%;
+  font-size: rem-calc(14);
 
   &:focus {
     outline: none;

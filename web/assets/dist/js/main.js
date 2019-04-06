@@ -1,18 +1,4 @@
-'use strict';
-
-(function () {
-
-  /**
-   * Cookie Banner
-   */
-  var banner = document.querySelector('.js-cookie-banner'),
-      bannerCloseBtn = document.querySelector('.js-cookie-banner-close'),
-      activeClass = 'is-active';
-
-  var cookieBanner = new CookieBanner(banner, bannerCloseBtn, activeClass);
-
-  cookieBanner.init();
-});
+"use strict";
 'use strict';
 
 (function () {
@@ -148,6 +134,40 @@ var CookieBanner = function () {
 }();
 'use strict';
 
+require('whatwg-fetch');
+
+(function () {
+
+  var dropDown = document.querySelector('.js-blog-dropdown');
+  var articlesArea = document.querySelector('.js-blog-articles');
+
+  dropDown.addEventListener('change', function () {
+    var yearSelected = this.selectedOptions[0].getAttribute('data-year-link');
+
+    // if option does not have a data attribute
+    if (yearSelected) {
+      getArticles(yearSelected, articlesArea);
+    }
+  });
+
+  function getArticles(query, area) {
+    fetch(query, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'text/html'
+      }
+    }).then(function (response) {
+      return response.text();
+    }).then(function (res) {
+      area.innerHTML = '';
+      area.innerHTML = res;
+    }).catch(function (error) {
+      return console.warn('Failed: ', error);
+    });
+  }
+})();
+'use strict';
+
 (function () {
 
   /**
@@ -202,3 +222,18 @@ var CookieBanner = function () {
     });
   });
 })();
+'use strict';
+
+(function () {
+
+  /**
+   * Cookie Banner
+   */
+  var banner = document.querySelector('.js-cookie-banner'),
+      bannerCloseBtn = document.querySelector('.js-cookie-banner-close'),
+      activeClass = 'is-active';
+
+  var cookieBanner = new CookieBanner(banner, bannerCloseBtn, activeClass);
+
+  cookieBanner.init();
+});

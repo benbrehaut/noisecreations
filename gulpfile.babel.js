@@ -157,7 +157,6 @@ gulp.task('watch', function () {
 gulp.task('build:js', function() {
   fancyLog.info('Building JS File..');
   return gulp.src([js.vendorFiles, js.jsFiles])
-    .pipe($.babel())
     .on('error', function(err) {
       fancyLog.error('Error: ' + err);
       this.emit('end');
@@ -165,6 +164,7 @@ gulp.task('build:js', function() {
     .pipe($.plumber())
     .pipe($.uglify())
     .pipe($.concat(js.outputJSFileCompressed)) // output main JavaScript file w/ uglify
+    .pipe($.babel())
     .pipe($.size({gzip: true, showFiles: true}))
     .pipe(gulp.dest(js.outputJSFileLocation))
 })
