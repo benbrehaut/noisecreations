@@ -5,7 +5,7 @@
       <div class="o-card c-team-member__card">
         {% if member.personImage|length %}
           <header class="c-team-member__header u-text-c">
-            <img src="{{ member.personImage.one().getUrl() }}" height="{{ member.personImage.height }}" width="{{ member.personImage.width }}" alt="{{ member.title }}">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ member.personImage.one().getUrl() }}" height="{{ member.personImage.height }}" width="{{ member.personImage.width }}" alt="{{ member.title }}" class="js-lazy-img">
           </header>
           {% endif %}
           <div class="c-team-member__info">

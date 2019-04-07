@@ -1,19 +1,25 @@
-import 'whatwg-fetch'
-
 (function () {
 
   const dropDown = document.querySelector('.js-blog-dropdown');
   const articlesArea = document.querySelector('.js-blog-articles')
 
-  dropDown.addEventListener('change', function() {
-    const yearSelected = this.selectedOptions[0].getAttribute('data-year-link');
-
-    // if option does not have a data attribute
-    if (yearSelected) {
-      getArticles(yearSelected, articlesArea);
-    }
-  })
+  if (dropDown) {
+    dropDown.addEventListener('change', function() {
+      const yearSelected = this.selectedOptions[0].getAttribute('data-year-link');
+  
+      // if option does not have a data attribute
+      if (yearSelected) {
+        getArticles(yearSelected, articlesArea);
+      }
+    });
+  }
  
+  /**
+   * getArticles
+   * @description Gets a chunck of HTML and appends the content into an element
+   * @param {*} query - the url to fetch
+   * @param {*} area - the area to place the response
+   */
   function getArticles(query, area) {
     fetch(query, {
       method: 'GET',
