@@ -6,13 +6,13 @@
     </h1>
     <div class="c-hero-banner__supporting">
       <div class="c-hero-banner__avater">
-        {% for entry in entry.articleAuthor %}
+        {% for entry in entry.articleAuthor.all() %}
           <img src="{{ entry.personImage.one().getUrl('articleAuthorSmall') }}" alt="{{ entry.title }}" width="{{ entry.personImage.one().getWidth('articleAuthorSmall') }}" height="{{ entry.personImage.one().getHeight('articleAuthorSmall') }}">
         {% endfor %}
         </div>
         <div class="c-hero-banner__author">
           <strong>Author</strong>
-          {% for entry in entry.articleAuthor %}
+          {% for entry in entry.articleAuthor.all() %}
             <p>
               {{ entry.title }}
             </p>

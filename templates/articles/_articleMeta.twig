@@ -1,6 +1,6 @@
 {% import 'includes/_macros' as macros  %}
 
-{% for entry in entry.articleAuthor %}
+{% for entry in entry.articleAuthor.all() %}
   <div class="l-wrap">
     <section class="l-col l-col--sm-12 l-col--md-12 l-col--lg-10 l-col--lg-offset-1">
       <footer class="o-card c-article-author">
@@ -37,7 +37,7 @@
     <div class="l-col l-col--sm-12 l-col--md-12 l-col--lg-10 l-col--lg-offset-1">
       <h2>tags</h2>
       <ul class="c-article-tags u-unstyled-list">
-      {% for tag in entry.articleTags %}
+      {% for tag in entry.articleTags.all() %}
         <li class="c-article-tags__tag">
           <a href="{{ tag.slug }}" class="o-btn o-btn-primary">{{ tag.title }}</a>
         </li>

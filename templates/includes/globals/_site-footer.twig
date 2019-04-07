@@ -40,7 +40,7 @@
       <nav class="l-col l-col--sm-12 l-col--md-6 l-col--lg-3 o-site-footer__col" role="navigation">
         <h2 class="o-site-footer__title">{{ globalSettings.footerNavigationTitle }}</h2>
         <ul class="u-unstyled-list o-site-footer-nav">
-          {% for navItem in globalSettings.footerNavigationLinks %}
+          {% for navItem in globalSettings.footerNavigationLinks.all() %}
             <li class="o-site-footer-list__item">
               <a class="o-site-footer-list__link" href="{{ navItem.url }}">{{ navItem.title }}</a>
             </li>
