@@ -1,13 +1,13 @@
 {
   "require": {
-    "craftcms/cms": "3.0.41.1",
+    "craftcms/cms": "3.1.21.1",
     "vlucas/phpdotenv": "^2.4.0",
-    "luwes/craft3-inline": "v1.0.0",
+    "luwes/craft3-inline": "v1.0.1",
     "wbrowar/adminbar": "3.1.6",
-    "craftcms/contact-form": "2.2.2",
-    "enovatedesign/craft-style-inliner": "1.1.1.1",
+    "craftcms/contact-form": "2.2.4",
+    "enovatedesign/craft-style-inliner": "1.1.2",
     "craftcms/contact-form-honeypot": "1.0.2",
-    "craftcms/redactor": "2.1.6",
+    "craftcms/redactor": "2.1.7",
     "matt-west/craft-recaptcha": "v1.1.0"
   },
   "autoload": {
