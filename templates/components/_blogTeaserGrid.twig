@@ -1,7 +1,7 @@
 {# Use the `group` filter to get the years, entries were posted in #}
 {% set entries = craft.entries.section('articles') %}
 {% set entriesByYear = entries|group('postDate|date("Y")') %}
-{% paginate entries.limit(1) as pageInfo, pageEntries %}
+{% paginate entries.limit(12) as pageInfo, pageEntries %}
 
 <nav class="js-sticky c-blog-filter-bar" role="navigation">
   <div class="l-wrap">

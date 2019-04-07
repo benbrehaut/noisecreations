@@ -1422,7 +1422,7 @@ textarea {
 }
 
 .o-site-header-social-list__link:hover svg {
-  fill: #4F5962 !important;
+  fill: #F4D03F !important;
 }
 
 .o-site-header-social-list__link svg {
@@ -1706,6 +1706,7 @@ textarea {
   -webkit-transition: 200ms ease-in-out;
   -o-transition: 200ms ease-in-out;
   transition: 200ms ease-in-out;
+  text-transform: lowercase;
 }
 
 .o-site-footer-list__link:hover {
@@ -2734,6 +2735,7 @@ body.home .c-hero-banner {
 .c-hero-banner__title {
   color: #F9F9F9;
   margin-bottom: 0;
+  text-transform: lowercase;
 }
 
 .c-hero-banner__btn {
