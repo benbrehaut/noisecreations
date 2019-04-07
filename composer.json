@@ -8,7 +8,8 @@
     "enovatedesign/craft-style-inliner": "1.1.2",
     "craftcms/contact-form-honeypot": "1.0.2",
     "craftcms/redactor": "2.1.7",
-    "matt-west/craft-recaptcha": "v1.1.0"
+    "matt-west/craft-recaptcha": "v1.1.0",
+    "verbb/feed-me": "3.1.16"
   },
   "autoload": {
     "psr-4": {
