@@ -7,9 +7,12 @@
 
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
-const $ = gulpLoadPlugins();
 import browserSync from 'browser-sync';
 import fancyLog from 'fancylog';
+import webpack from 'webpack-stream'
+import path from 'path'
+
+const $ = gulpLoadPlugins();
 
 /**
  * variables
@@ -28,8 +31,7 @@ const dir = {
 // Main JS Variables
 const js = { 
   jsFiles: `${dir.src}/js/**/*.js`,
-  vendorFiles: `${dir.src}/js/vendor/**/*.js`,
-  outputJSFile: `./main.js`,
+  entryFile: `${dir.src}/js/main.js`,
   outputJSFileCompressed: `./main.js`,
   outputJSFileLocation: `${dir.dist}/js`,
 };
@@ -57,17 +59,15 @@ const media = {
  * @version v1
  */
 gulp.task('scripts', function () {
-  fancyLog.info('Merging JS Files..');
-  return gulp.src([js.vendorFiles, js.jsFiles])
-    .pipe($.babel())
+  fancyLog.info('Building JS File..');
+  return gulp.src(path.resolve(__dirname, js.entryFile))
     .on('error', function(err) {
       fancyLog.error('Error: ' + err);
       this.emit('end');
     })
-    .pipe($.plumber())
-    .pipe($.concat(js.outputJSFile))  // output main JavaScript file without uglify
+    .pipe(webpack( require('./webpack.config.js') ))
     .pipe(gulp.dest(js.outputJSFileLocation))
-    .pipe(browserSync.reload({ stream: true }))
+    .pipe(browserSync.reload({ stream: true }));
 });
 
 /**
@@ -168,6 +168,17 @@ gulp.task('build:js', function() {
     .pipe($.size({gzip: true, showFiles: true}))
     .pipe(gulp.dest(js.outputJSFileLocation))
 })
+
+gulp.task('build:js', function() {
+  fancyLog.info('Building JS File..');
+  return gulp.src(path.resolve(__dirname, js.entryFile))
+    .on('error', function(err) {
+      fancyLog.error('Error: ' + err);
+      this.emit('end');
+    })
+    .pipe(webpack( require('./webpack.config.js') ))
+    .pipe(gulp.dest(js.outputJSFileLocation));
+});
 
 /**
  * Build CSS

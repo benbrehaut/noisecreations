@@ -1,7 +1,7 @@
 /**
  * Class representing cookie banner
  */
-class CookieBanner {
+export default class CookieBanner {
   /**
    * Creates a cookie banner
    * @param {HTMLElement} banner 
