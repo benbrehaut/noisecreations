@@ -17,14 +17,8 @@ export default class CookieBanner {
     this.closeBanner.bind(this);
     this.createCookie.bind(this);
     this.closeBtn.addEventListener('click', () => this.closeBanner());
-  }
 
-  /**
-   * Initialise method
-   * @return {method} checking for cookie
-   */
-  init() {
-    return this.checkCookie()
+    this.checkCookie()
   }
 
   /**

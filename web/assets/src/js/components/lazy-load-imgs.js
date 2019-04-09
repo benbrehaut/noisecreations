@@ -1,6 +1,4 @@
-(function () {
-
-const imgObserver = new IntersectionObserver(imgs => {
+let imgObserver = new IntersectionObserver(imgs => {
   imgs.forEach(img => {
     if (img.intersectionRatio > 0) {
       const activeImg = img.target;
@@ -16,10 +14,4 @@ const imgObserver = new IntersectionObserver(imgs => {
   rootMargin: '0px',
 });
 
-const lazyImgs = document.querySelectorAll('.js-lazy-img');
-
-lazyImgs.forEach(img => {
-  imgObserver.observe(img);
-});
-
-})();
+export default imgObserver;
