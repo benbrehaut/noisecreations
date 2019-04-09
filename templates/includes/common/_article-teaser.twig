@@ -1,5 +1,8 @@
 <article class="o-article-teaser" role="article">
   <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ article.articleBanner.one().getUrl('blogTeaser') }}" alt="{{ article.title }}" width="{{ article.articleBanner.one().width('blogTeaser') }}" height="{{ article.articleBanner.one().height('blogTeaser') }}" class="js-lazy-img o-article-teaser__img">
+  <noscript>
+    <img src="{{ article.articleBanner.one().getUrl('blogTeaser') }}" alt="{{ article.title }}" width="{{ article.articleBanner.one().width('blogTeaser') }}" height="{{ article.articleBanner.one().height('blogTeaser') }}" class="o-article-teaser__img">
+  </noscript>
     <div class="o-article-teaser__content o-card u-text-c">
       <time class="o-article-teaser__date" datetime="{{ article.postDate | date('Y-m-d') }}">
         {{ article.postDate | date('d M Y') }}</time>

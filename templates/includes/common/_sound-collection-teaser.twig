@@ -1,7 +1,11 @@
 <div class="o-sound-collection-teaser u-text-c">
   {% if collection.soundCollectionPreviewImage|length %}
     <a href="{{ collection.url }}" tabindex="-1">
-      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ collection.soundCollectionPreviewImage.one.getUrl() }}" width="{{ collection.soundCollectionPreviewImage.one.width() }}" height="{{ collection.soundCollectionPreviewImage.one.height() }}" alt="{{ collection.title }} box art" class="js-lazy-img o-sound-collection-teaser__box"></a>
+      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ collection.soundCollectionPreviewImage.one.getUrl() }}" width="{{ collection.soundCollectionPreviewImage.one.width() }}" height="{{ collection.soundCollectionPreviewImage.one.height() }}" alt="{{ collection.title }} box art" class="js-lazy-img o-sound-collection-teaser__box">
+      <noscript>
+        <img src="{{ collection.soundCollectionPreviewImage.one.getUrl() }}" width="{{ collection.soundCollectionPreviewImage.one.width() }}" height="{{ collection.soundCollectionPreviewImage.one.height() }}" alt="{{ collection.title }} box art" class="o-sound-collection-teaser__box">
+      </noscript>
+    </a>
     {% endif %}
     <h3 class="o-heading-4 o-sound-collection-teaser__title u-text-caps">
       <a href="{{ collection.url }}">
