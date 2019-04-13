@@ -1,4 +1,5 @@
-import '../vendor/polyfill.fetch'
+import '../vendor/polyfill.promise';
+import '../vendor/polyfill.fetch';
 
 export default class DropDownAjax {
   constructor(dropDown, area) {
