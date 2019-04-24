@@ -14,44 +14,7 @@ import path from 'path'
 
 const $ = gulpLoadPlugins();
 
-/**
- * variables
- * @description variables which contain things used throughout this file
- */
-
-// Site URL for Browser Sync
-const siteURL = 'local.noisecreations.co.uk';
-
-// Dirctories
-const dir = {
-  src: 'web/assets/src',
-  dist: 'web/assets/dist'
-}
-
-// Main JS Variables
-const js = { 
-  jsFiles: `${dir.src}/js/**/*.js`,
-  entryFile: `${dir.src}/js/main.js`,
-  outputJSFileCompressed: `./main.js`,
-  outputJSFileLocation: `${dir.dist}/js`,
-};
-
-// Main CSS Variables
-const css = {
-  sassFiles: `${dir.src}/scss/**/*.scss`,
-  mainSassFile: `${dir.src}/scss/style.scss`,
-  outputCSSFile: `main.css`,
-  outputCSSFileCompressed: `main.css`,
-  outputCSSFileLocation: `${dir.dist}/css`
-};
-
-// Media Variables
-const media = {
-  imgs: `${dir.src}/img`,
-  imgsCompressed: `${dir.dist}/img`,
-  icons: `${dir.src}/icons`,
-  iconsCompressed: `${dir.dist}/icons`
-}
+const paths = require('./variables')
 
 /**
  * scripts
@@ -60,13 +23,13 @@ const media = {
  */
 gulp.task('scripts', function () {
   fancyLog.info('Building JS File..');
-  return gulp.src(path.resolve(__dirname, js.entryFile))
+  return gulp.src(path.resolve(__dirname, paths.js.entryFile))
     .on('error', function(err) {
       fancyLog.error('Error: ' + err);
       this.emit('end');
     })
     .pipe(webpack( require('./webpack.config.js') ))
-    .pipe(gulp.dest(js.outputJSFileLocation))
+    .pipe(gulp.dest(paths.js.outputJSFileLocation))
     .pipe(browserSync.reload({ stream: true }));
 });
 
@@ -76,8 +39,8 @@ gulp.task('scripts', function () {
  * @version v1
  */
 gulp.task('styles', function () {
-  fancyLog.info('Compiling: ' + css.mainSassFile);
-  return gulp.src(css.mainSassFile)
+  fancyLog.info('Compiling: ' + paths.css.mainSassFile);
+  return gulp.src(paths.css.mainSassFile)
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       includePaths: ['scss'],
@@ -88,9 +51,9 @@ gulp.task('styles', function () {
     .pipe($.sassLint.format())
     .pipe($.autoprefixer())
     .pipe($.plumber())
-    .pipe($.concat(css.outputCSSFile)) // output main CSS file without cleanCSS
+    .pipe($.concat(paths.css.outputCSSFile)) // output main CSS file without cleanCSS
     .pipe($.sourcemaps.write('./maps'))
-    .pipe(gulp.dest(css.outputCSSFileLocation))
+    .pipe(gulp.dest(paths.css.outputCSSFileLocation))
     .pipe(browserSync.reload({ stream: true }));
 });
 
@@ -100,14 +63,14 @@ gulp.task('styles', function () {
  * @version v1
  */
 gulp.task('browser-sync', ['scripts', 'styles'], function () {
-  fancyLog.info('Starting Browser Sync Server at: ' + siteURL);
+  fancyLog.info('Starting Browser Sync Server at: ' + paths.siteURL);
   browserSync.init({
-    proxy: siteURL,
+    proxy: paths.siteURL,
     files: [
-      'templates/*.twig',
-      'templates/**/*.twig',
-      js.outputJSFileLocation + '/*.js',
-      css.outputCSSFileLocation + '/*.css'
+      '../templates/*.twig',
+      '../templates/**/*.twig',
+      paths.js.outputJSFileLocation + '/*.js',
+      paths.css.outputCSSFileLocation + '/*.css'
     ]
   });
 });
@@ -118,11 +81,11 @@ gulp.task('browser-sync', ['scripts', 'styles'], function () {
  * @version v1
  */
 gulp.task('imgs', function () {
-  fancyLog.info('Compressing Images in: ' + media.imgs);
-  gulp.src(media.imgs + '/**/*.{gif,jpg,png,svg,ico}')
+  fancyLog.info('Compressing Images in: ' + paths.media.imgs);
+  gulp.src(paths.media.imgs + '/**/*.{gif,jpg,png,svg,ico}')
     .pipe($.imagemin())
     .pipe($.size({gzip: true, showFiles: true}))
-    .pipe(gulp.dest(media.imgsCompressed));
+    .pipe(gulp.dest(paths.media.imgsCompressed));
 });
 
 /**
@@ -131,12 +94,12 @@ gulp.task('imgs', function () {
  * @version v1
  */
 gulp.task('svgs', function () {
-  fancyLog.info('Generating icons.svg at: ' + media.icons);
-  return gulp.src(media.icons + '/*.svg')
+  fancyLog.info('Generating icons.svg at: ' + paths.media.icons);
+  return gulp.src(paths.media.icons + '/*.svg')
     .pipe($.svgmin())
     .pipe($.svgstore())
     .pipe($.size({gzip: true, showFiles: true}))
-    .pipe(gulp.dest(media.iconsCompressed));
+    .pipe(gulp.dest(paths.media.iconsCompressed));
 });
 
 /**
@@ -146,8 +109,8 @@ gulp.task('svgs', function () {
  */
 gulp.task('watch', function () {
   fancyLog.info('Watching Scss and JS files');
-  gulp.watch(js.jsFiles, ['scripts']);
-  gulp.watch(css.sassFiles, ['styles']);
+  gulp.watch(paths.js.jsFiles, ['scripts']);
+  gulp.watch(paths.css.sassFiles, ['styles']);
 });
 
 /**
@@ -156,28 +119,14 @@ gulp.task('watch', function () {
  */
 gulp.task('build:js', function() {
   fancyLog.info('Building JS File..');
-  return gulp.src([js.vendorFiles, js.jsFiles])
-    .on('error', function(err) {
-      fancyLog.error('Error: ' + err);
-      this.emit('end');
-    })
-    .pipe($.plumber())
-    .pipe($.uglify())
-    .pipe($.concat(js.outputJSFileCompressed)) // output main JavaScript file w/ uglify
-    .pipe($.babel())
-    .pipe($.size({gzip: true, showFiles: true}))
-    .pipe(gulp.dest(js.outputJSFileLocation))
-})
-
-gulp.task('build:js', function() {
-  fancyLog.info('Building JS File..');
-  return gulp.src(path.resolve(__dirname, js.entryFile))
+  return gulp.src(path.resolve(__dirname, paths.js.entryFile))
     .on('error', function(err) {
       fancyLog.error('Error: ' + err);
       this.emit('end');
     })
     .pipe(webpack( require('./webpack.config.js') ))
-    .pipe(gulp.dest(js.outputJSFileLocation));
+    .pipe(gulp.dest(paths.js.outputJSFileLocation))
+    .pipe($.size({gzip: true, showFiles: true}));
 });
 
 /**
@@ -185,8 +134,8 @@ gulp.task('build:js', function() {
  * @description Minify and conat Scss Files into one CSS File
  */
 gulp.task('build:css', function() {
-  fancyLog.info('Building: ' + css.mainSassFile);
-  return gulp.src(css.mainSassFile)
+  fancyLog.info('Building: ' + paths.css.mainSassFile);
+  return gulp.src(paths.css.mainSassFile)
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       includePaths: ['scss'],
@@ -198,8 +147,8 @@ gulp.task('build:css', function() {
     .pipe($.autoprefixer())
     .pipe($.plumber())
     .pipe($.cleanCss())
-    .pipe($.concat(css.outputCSSFileCompressed)) // output main CSS file without cleanCSS
-    .pipe(gulp.dest(css.outputCSSFileLocation))
+    .pipe($.concat(paths.css.outputCSSFileCompressed)) // output main CSS file without cleanCSS
+    .pipe(gulp.dest(paths.css.outputCSSFileLocation))
     .pipe($.size({gzip: true, showFiles: true}))
 })
 

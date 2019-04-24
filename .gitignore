@@ -3,7 +3,9 @@
 /vendor
 .DS_Store
 /node_modules
+/gulp/node_modules
 /web/uploads
+.vscode
 *.js.map
 
 # OS generated files #

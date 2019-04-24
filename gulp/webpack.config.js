@@ -1,11 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
+const paths = require('./variables');
 
 module.exports = {
-    entry: ["./web/assets/src/js/main.js"],
+    entry: [
+      path.resolve(__dirname + paths.js.entryFile)
+    ],
     output: { 
-        path: __dirname + "/web/assets/dist/js",
-        filename: 'main.js' 
+        path: path.resolve(__dirname + paths.js.outputJSFileLocation),
+        filename: paths.js.outputJSFileCompressed 
     },
     devtool: "sourcemap",
     externals: {
