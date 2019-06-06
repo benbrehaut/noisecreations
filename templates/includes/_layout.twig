@@ -111,7 +111,7 @@
      {% if craft.app.config.general.devMode %}
        {% do view.registerCssFile("/assets/dist/css/main.css") %}
      {% else %}
-       <style>{{ inline('/assets/dist/css/main.css') | raw }}</style>
+       <style>{{ inline('./assets/dist/css/main.css') | raw }}</style>
      {% endif %}
    {# CSS File #}
  
