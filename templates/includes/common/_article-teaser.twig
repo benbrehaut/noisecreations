@@ -1,14 +1,21 @@
 <article class="o-article-teaser" role="article">
-  <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ article.articleBanner.one().getUrl('blogTeaser') }}" alt="{{ article.title }}" width="{{ article.articleBanner.one().width('blogTeaser') }}" height="{{ article.articleBanner.one().height('blogTeaser') }}" class="js-lazy-img o-article-teaser__img">
-  <noscript>
-    <img src="{{ article.articleBanner.one().getUrl('blogTeaser') }}" alt="{{ article.title }}" width="{{ article.articleBanner.one().width('blogTeaser') }}" height="{{ article.articleBanner.one().height('blogTeaser') }}" class="o-article-teaser__img">
-  </noscript>
-    <div class="o-article-teaser__content o-card u-text-c">
+  {% if article.articleBanner.one() %}
+    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ article.articleBanner.one().getUrl('blogTeaser') }}" alt="{{ article.title }}" width="{{ article.articleBanner.one().width('blogTeaser') }}" height="{{ article.articleBanner.one().height('blogTeaser') }}" class="js-lazy-img o-article-teaser__img">
+    <noscript>
+      <img src="{{ article.articleBanner.one().getUrl('blogTeaser') }}" alt="{{ article.title }}" width="{{ article.articleBanner.one().width('blogTeaser') }}" height="{{ article.articleBanner.one().height('blogTeaser') }}" class="o-article-teaser__img">
+    </noscript>
+  {% else %}
+    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/assets/dist/img/blog-placeholder-420x350.png" alt="{{ article.title }}" width="420" height="350" class="js-lazy-img o-article-teaser__img">
+    <noscript>
+      <img src="/assets/dist/img/blog-placeholder-420x350.png" alt="{{ article.title }}" width="420" height="350" class="o-article-teaser__img">
+    </noscript>
+  {% endif %}
+    <section class="o-article-teaser__content o-card u-text-c">
       <time class="o-article-teaser__date" datetime="{{ article.postDate | date('Y-m-d') }}">
         {{ article.postDate | date('d M Y') }}</time>
       <h2 class="o-article-teaser__heading o-heading-4">
         <a href="{{ article.url }}">
           {{ article.title }}</a>
       </h2>
-    </div>
+    </section>
   </article>
