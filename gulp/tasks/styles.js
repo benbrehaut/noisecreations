@@ -4,6 +4,9 @@ import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
 import fancyLog from 'fancylog';
+import postcss from 'gulp-postcss'
+import postcssCustomProperties from 'postcss-custom-properties'
+import autoprefixer from 'autoprefixer'
 
 const $ = gulpLoadPlugins();
 
@@ -23,9 +26,7 @@ gulp.task('styles', function () {
       outputStyle: 'expanded',
       onError: browserSync.notify
     }).on('error', $.sass.logError))
-    .pipe($.sassLint())
-    .pipe($.sassLint.format())
-    .pipe($.autoprefixer())
+    .pipe(postcss([ autoprefixer(), postcssCustomProperties() ]))
     .pipe($.plumber())
     .pipe($.concat(paths.css.outputCSSFile)) // output main CSS file without cleanCSS
     .pipe($.sourcemaps.write('./maps'))

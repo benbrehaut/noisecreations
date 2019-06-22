@@ -5,6 +5,9 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 import fancyLog from 'fancylog';
 import webpack from 'webpack-stream'
 import path from 'path'
+import postcss from 'gulp-postcss'
+import postcssCustomProperties from 'postcss-custom-properties'
+import autoprefixer from 'autoprefixer'
 
 const $ = gulpLoadPlugins();
 
@@ -40,7 +43,7 @@ gulp.task('build:css', function() {
     }).on('error', $.sass.logError))
     .pipe($.sassLint())
     .pipe($.sassLint.format())
-    .pipe($.autoprefixer())
+    .pipe(postcss([ autoprefixer(), postcssCustomProperties() ]))
     .pipe($.plumber())
     .pipe($.cleanCss())
     .pipe($.concat(paths.css.outputCSSFileCompressed)) // output main CSS file without cleanCSS

@@ -38,5 +38,10 @@
     "gulp-uglify": "^3.0.0",
     "require-dir": "^1.2.0",
     "webpack-stream": "^5.2.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.6.0",
+    "gulp-postcss": "^8.0.0",
+    "postcss-custom-properties": "^9.0.1"
   }
 }
