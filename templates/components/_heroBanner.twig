@@ -1,16 +1,16 @@
 {% import 'includes/_macros' as macros  %}
-{% set heroBanner = component %}
+{% set heroBanner = entry %}
 
-<header class="c-hero-banner u-text-c {{entry}}" role="banner" style="background-image: url('{{ heroBanner.heroBannerImage.one().getUrl() }}')">
-  <section class="c-hero-banner__wrap">
+<section class="c-hero-banner u-text-c {{entry}}" style="background-image: url('{{ heroBanner.heroBannerImage.one().getUrl() }}')">
+  <div class="c-hero-banner__wrap">
     <h1 class="c-hero-banner__title">{{ heroBanner.heroBannerTitle }}</h1>
 
-    {% if heroBanner.heroBannerCtaLink and heroBanner.heroBannerCtaText %}
-      <a href="{{ heroBanner.heroBannerCtaLink.one().getUrl() }}" class="o-btn o-btn-accent c-hero-banner__btn">{{ heroBanner.heroBannerCtaText }}</a>
+    {% if heroBanner.ctaLink and heroBanner.ctaText %}
+      <a href="{{ heroBanner.ctaLink.one().getUrl() }}" class="o-btn o-btn-accent c-hero-banner__btn">{{ heroBanner.ctaText }}</a>
     {% endif %}
-  </section>
+  </div>
 
   <span class="c-hero-banner__icon">
     {{ macros.toggleArrow('arrow-down', 'js-hero-banner-icon') }}
   </span>
-</header>
+</section>

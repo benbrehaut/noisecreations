@@ -29,10 +29,18 @@ body.sound-collections {
 
 .c-product-hero-banner__intro {
   margin-bottom: rem-calc(55);
+
+  @include breakpoint(md down) {
+    margin-bottom: rem-calc(25);
+  }
 }
 
 .c-product-hero-banner__heading {
   font-family: $font-family-normal;
+
+  @include breakpoint(md down) {
+    font-size: $font-size-heading-five;
+  }
 }
 
 .c-product-hero-banner__cta {
@@ -43,12 +51,23 @@ body.sound-collections {
   font-family: $font-family-secondary;
   font-size: rem-calc(14);
   margin-top: rem-calc(5);
+  margin-bottom: 0;
 }
 
 .c-product-hero-banner__title,
 .c-product-hero-banner__heading,
 .c-product-hero-banner__byline {
   color: inherit;
+}
+
+.c-product-hero-banner__title {
+  @include breakpoint(md down) {
+    font-size: rem-calc(28);
+  }
+}
+
+.c-product-hero-banner__heading {
+
 }
 
 .c-product-hero-banner-features {
@@ -87,7 +106,7 @@ body.sound-collections {
   top: 0;
   z-index: 1;
 
-  @include breakpoint(md only) {
+  @include breakpoint(md down) {
     display: none;
   }
 }
@@ -143,4 +162,8 @@ body.sound-collections {
 // Content
 .c-product-content {
   margin: $spacing-medium 0;
+
+  @include breakpoint(md down) {
+    margin: rem-calc(20) 0;
+  }
 }

@@ -20,9 +20,14 @@
 {% endif %}
 {% extends "includes/_layout" %}
 {% block content %}
-  {% for component in entry.selectComponent.all() %}
-    <div id="{{ entry|lower|replace('/[^a-zA-Z0-9 ]/', '-') }} {{ component.type.handle|lower }}-{{component}}" class="component component--{{ component.type.handle|lower }}">
-      {% include ('components/_' ~ component.type.handle) %}
-    </div>
-  {% endfor %}
+  {% include 'components/_heroBanner' %}
+
+  <div class="js-scroll-to">
+    {% for component in entry.selectComponent.all() %}
+      <div id="{{ entry|lower|replace('/[^a-zA-Z0-9 ]/', '-') }} {{ component.type.handle|lower }}-{{component}}" class="component component--{{ component.type.handle|lower }}">
+        {% include ('components/_' ~ component.type.handle) %}
+      </div>     
+    {% endfor %}
+  </div>
+
 {% endblock %}
