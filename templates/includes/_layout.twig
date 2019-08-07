@@ -30,7 +30,7 @@
    {{ head() }}
  </head>
  
- <body class="root {% if not entry == '404' %}error-404{% endif %} {% if craft.app.request.getUrl() == '/' %}home{% endif %} {% if entry is defined %} {{ entry.type.name|lower|kebab }} {{ entry.type.name|lower }}-{{ entry.id }} {% endif %}">
+ <body class="root {% if craft.app.request.getUrl() == '/' %}home{% endif %} ">
  
    <!--[if lte IE 9]>
      <div class="site-notice">

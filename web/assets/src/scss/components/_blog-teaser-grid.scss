@@ -5,6 +5,7 @@
   position: sticky;
   top: 0;
   padding: rem-calc(18 0);
+  z-index: 2;
 
   &__label {
     font-family: $font-family-secondary;
@@ -16,6 +17,11 @@
     display: inline-block;
     width: auto;
     margin-left: rem-calc(20);
+
+    @include breakpoint(sm only) {
+      margin-left: 0;
+      width: 100%;
+    }
   }
 }
 

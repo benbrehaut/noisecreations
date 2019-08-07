@@ -45,6 +45,14 @@ body.sound-collections {
 
 .c-product-hero-banner__cta {
   margin-top: rem-calc(25);
+
+  div + div {
+    margin-top: rem-calc(15)
+  }
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .c-product-hero-banner__notice {
@@ -165,5 +173,11 @@ body.sound-collections {
 
   @include breakpoint(md down) {
     margin: rem-calc(20) 0;
+  }
+
+  &__info {
+    @include breakpoint(sm only) {
+      margin-bottom: rem-calc(25);
+    }
   }
 }

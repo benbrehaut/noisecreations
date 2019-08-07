@@ -39,6 +39,10 @@ body.home .c-hero-banner {
   color: $palette-tertiary;
   margin-bottom: 0;
   text-transform: lowercase;
+
+  @include breakpoint(md down) {
+    font-size: rem-calc(36);
+  }
 }
 
 .c-hero-banner__btn {

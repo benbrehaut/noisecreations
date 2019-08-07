@@ -30,10 +30,10 @@
 
   <article class="c-product-content">
     <div class="l-wrap">
-      <div class="l-col l-col--sm-12 l-col--md-6">
+      <div class="c-product-content__info l-col l-col--sm-12 l-col--md-6">
         {{ entry.soundCollectionDescription }}
 
-        {{ entry.soundCollectionSoundCloudEmbed }}
+        {{ entry.soundCollectionSoundCloudEmbed|raw }}
       </div>
       <div class="l-col l-col--sm-12 l-col--md-6">
         {% include 'sound-collections/_accordion' %}

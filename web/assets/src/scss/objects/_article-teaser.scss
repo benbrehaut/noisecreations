@@ -3,6 +3,12 @@
   margin-bottom: rem-calc(70);
 }
 
+.o-article-teaser__img {
+  @include breakpoint(sm only) {
+    width: 100%;
+  }
+}
+
 .o-article-teaser__date {
   color: #757575;
   font-size: rem-calc(18);

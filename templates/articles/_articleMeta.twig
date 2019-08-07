@@ -32,14 +32,14 @@
   </div>
 {% endfor %}
 
-{% if entry.articleTags %}
+{% if entry.articleTags | length %}
   <div class="l-wrap">
     <div class="l-col l-col--sm-12 l-col--md-12 l-col--lg-10 l-col--lg-offset-1">
       <h2>tags</h2>
       <ul class="c-article-tags u-unstyled-list">
       {% for tag in entry.articleTags.all() %}
         <li class="c-article-tags__tag">
-          <a href="{{ tag.slug }}" class="o-btn o-btn-primary">{{ tag.title }}</a>
+          <a href="tags/{{ tag.slug }}" class="o-btn o-btn-primary">{{ tag.title }}</a>
         </li>
       {% endfor %}
       </ul>

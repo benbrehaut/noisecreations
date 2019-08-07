@@ -22,6 +22,7 @@
   &__social {
     @include horizontal-center;
     bottom: rem-calc(45);
+    width: 100%;
 
     svg {
       fill: $palette-secondary !important;

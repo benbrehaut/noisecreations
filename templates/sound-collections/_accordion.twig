@@ -1,23 +1,23 @@
 <dl class="js-accordion o-accordion" role="presentation">
-  <dt class="o-accordion__heading js-accordion-heading" role="heading" aria-level="3">
+  {# <dt class="o-accordion__heading js-accordion-heading" role="heading" aria-level="3">
     <button id="purchaseInfoHeading" type="button" class="js-accordion-btn o-accordion__btn u-text-caps u-text-l is-active" aria-controls="purchaseInfoContent" aria-expanded="true">Purchase At</button>
     <span class="o-accordion__icon" aria-hidden="true"></span>
   </dt>
   <dd id="purchaseInfoContent" class="js-accordion-panel o-accordion__panel is-active" aria-hidden="false" aria-labelledby="purchaseInfoHeading" role="region">
     <p>Purchase at locations</p>
-  </dd>
+  </dd> #}
   <dt class="o-accordion__heading js-accordion-heading" role="heading" aria-level="3">
-    <button id="purchaseInfoHeading" type="button" class="js-accordion-btn o-accordion__btn u-text-caps u-text-l" aria-controls="purchaseInfoContent" aria-expanded="true">Purchase Information</button>
+    <button id="purchaseInfoHeading" type="button" class="js-accordion-btn o-accordion__btn u-text-caps u-text-l is-active" aria-controls="purchaseInfoContent" aria-expanded="true">Purchase Information</button>
     <span class="o-accordion__icon" aria-hidden="true"></span>
   </dt>
-  <dd id="purchaseInfoContent" class="js-accordion-panel o-accordion__panel" aria-hidden="false" aria-labelledby="purchaseInfoHeading" role="region">
+  <dd id="purchaseInfoContent" class="js-accordion-panel o-accordion__panel is-active" aria-hidden="false" aria-labelledby="purchaseInfoHeading" role="region">
     {{ globalSettings.purchaseInformation }}
   </dd>
   <dt class="o-accordion__heading js-accordion-heading" role="heading" aria-level="3">
-    <button id="purchaseInfoHeading" type="button" class="js-accordion-btn o-accordion__btn u-text-caps u-text-l" aria-controls="purchaseInfoContent" aria-expanded="true">Copyright Notice</button>
+    <button id="purchaseInfoHeading" type="button" class="js-accordion-btn o-accordion__btn u-text-caps u-text-l" aria-controls="purchaseInfoContent" aria-expanded="false">Copyright Notice</button>
     <span class="o-accordion__icon" aria-hidden="true"></span>
   </dt>
-  <dd id="purchaseInfoContent" class="js-accordion-panel o-accordion__panel" aria-hidden="false" aria-labelledby="purchaseInfoHeading" role="region">
+  <dd id="purchaseInfoContent" class="js-accordion-panel o-accordion__panel" aria-hidden="true" aria-labelledby="purchaseInfoHeading" role="region">
     {{ globalSettings.copyrightNotice }}
   </dd>
 </dl>
