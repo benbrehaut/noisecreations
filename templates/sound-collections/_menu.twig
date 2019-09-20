@@ -2,13 +2,13 @@
 
 <nav class="js-sticky c-product-nav" role="navigation">
   <section class="l-wrap l-col c-product-nav__wrap">
-    <h2 class="o-heading-6 u-text-caps c-product-nav__back">
+    <strong class="o-heading-6 u-text-caps c-product-nav__back">
       <a href="{{ globalSettings.soundCollectionsPage.one().getUrl }}">
         <span>{{ macros.icon('arrow-left', '10px', '10px') }}</span>Return to sound collections
       </a>
-    </h2>
+    </strong>
     <section class="c-product-nav__info">
-      <h2 class="u-text-caps o-heading-6 c-product-nav__title">{{ entry.title }}</h2>
+      <strong class="u-text-caps o-heading-6 c-product-nav__title">{{ entry.title }}</strong>
       {% include 'sound-collections/_buy-btn' %}
     </section>
   </section>

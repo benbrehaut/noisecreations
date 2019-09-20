@@ -1913,6 +1913,11 @@ h6,
 .o-btn-price {
   font-size: 1.4rem;
   padding: 0;
+  background-color: transparent;
+}
+
+.o-btn-price:hover, .o-btn-price:focus {
+  background-color: transparent;
 }
 
 .o-btn-price__text,
@@ -1922,6 +1927,9 @@ h6,
 
 .o-btn-price__text {
   padding: 1.2rem 2.5rem;
+  background-color: #1E824C;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .o-btn-price__price {
