@@ -9,7 +9,7 @@
       </a>
     </div>
 
-    <a heef="#" class="js-toggle-menu o-site-header-toggler" role="button" aria-label="Open Site Navigation Menu">
+    <a href="#" class="js-toggle-menu o-site-header-toggler" role="button" aria-label="Open Site Navigation Menu">
       <span class="o-site-header-toggler__hamburger-line o-site-header-toggler__hamburger-line--top" aria-hidden="true"></span>
       <span class="o-site-header-toggler__hamburger-line o-site-header-toggler__hamburger-line--middle" aria-hidden="true"></span>
       <span class="o-site-header-toggler__hamburger-line o-site-header-toggler__hamburger-line--bottom" aria-hidden="true"></span>
@@ -19,16 +19,21 @@
     {% include 'includes/globals/_site-navigation' %}
 
     <ul class="o-site-header-social-list">
-      <li class="o-site-header-social-list__item">
-        <a href="{{ globalSettings.soundcloudUrl }}" class="o-site-header-social-list__link" target="_blank" rel="noopener" aria-label="Soundcloud">
-          {{ macros.icon('soundcloud', '35px', '27px', 'o-icon--light') }}
-        </a>
-      </li>
-      <li class="o-site-header-social-list__item">
-        <a href="{{ globalSettings.twitterUrl }}" class="o-site-header-social-list__link" target="_blank" rel="noopener" aria-label="Twitter">
-          {{ macros.icon('twitter', '22px', '17px', 'o-icon--light') }}
-        </a>
-      </li>
+      {% if globalSettings.soundcloudUrl %}
+        <li class="o-site-header-social-list__item">
+          <a href="{{ globalSettings.soundcloudUrl }}" class="o-site-header-social-list__link" target="_blank" rel="noopener" aria-label="Soundcloud">
+            {{ macros.icon('soundcloud', '35px', '27px', 'o-icon--light') }}
+          </a>
+        </li>
+      {% endif %}
+
+      {% if globalSettings.twitterUrl %}
+        <li class="o-site-header-social-list__item">
+          <a href="{{ globalSettings.twitterUrl }}" class="o-site-header-social-list__link" target="_blank" rel="noopener" aria-label="Twitter">
+            {{ macros.icon('twitter', '22px', '17px', 'o-icon--light') }}
+          </a>
+        </li>
+      {% endif %}
     </ul>
 
   </div>

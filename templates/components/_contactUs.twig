@@ -7,18 +7,23 @@
       {{ contactUs.contactUsContent }}
 
       <ul class="u-unstyled-list c-contact-us-social">
-        <li class="c-contact-us-social__item">
-          <a href="{{ globalSettings.twitterUrl }}" class="c-contact-us-social__link">
-            {{ macros.icon('twitter', '43px', '35px', 'o-icon--dark c-contact-us-social__icon') }}
-            <span class="c-contact-us-social__text">{{ globalSettings.twitterUrl|lower|replace('https://twitter.com/', '@') }}</span>
-          </a>
-        </li>
-        <li class="c-contact-us-social__item">
-          <a href="{{ globalSettings.soundcloudUrl }}" class="c-contact-us-social__link">
-            {{ macros.icon('soundcloud', '43px', '35px', 'o-icon--dark c-contact-us-social__icon') }}
-            <span class="c-contact-us-social__text">{{ globalSettings.soundcloudUrl|lower|replace('https://soundcloud.com/', '') }}</span>
-          </a>
-        </li>
+        {% if globalSettings.twitterUrl %}
+          <li class="c-contact-us-social__item">
+            <a href="{{ globalSettings.twitterUrl }}" class="c-contact-us-social__link">
+              {{ macros.icon('twitter', '43px', '35px', 'o-icon--dark c-contact-us-social__icon') }}
+              <span class="c-contact-us-social__text">{{ globalSettings.twitterUrl|lower|replace('https://twitter.com/', '@') }}</span>
+            </a>
+          </li>
+        {% endif %}
+        
+        {% if globalSettings.soundcloudUrl %}
+          <li class="c-contact-us-social__item">
+            <a href="{{ globalSettings.soundcloudUrl }}" class="c-contact-us-social__link">
+              {{ macros.icon('soundcloud', '43px', '35px', 'o-icon--dark c-contact-us-social__icon') }}
+              <span class="c-contact-us-social__text">{{ globalSettings.soundcloudUrl|lower|replace('https://soundcloud.com/', '') }}</span>
+            </a>
+          </li>
+        {% endif %}
       </ul>
 
     </div>
