@@ -1,0 +1,16 @@
+{#
+/**
+ * @_site-navigation
+ * Global site navigation file which is included in the _site-header.twig file
+ */
+#}
+
+<nav class="o-site-nav" role="nav">
+  <ul class="u-unstyled-list o-site-nav__list">
+    {% for navItem in globalSettings.siteNavigation.all() %}
+      <li class="o-site-nav__item {% if url(craft.app.request.pathInfo) == navItem.url %}is-active{% endif %}">
+        <a href="{{ navItem.url }}" class="o-site-nav__link">{{ navItem.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

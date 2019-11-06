@@ -1,0 +1,38 @@
+{% import 'includes/_macros' as macros  %}
+<header class="c-hero-banner" role="banner" style="background-image: url('{{ entry.articleBanner.one().getUrl() }}')">
+  <section class="c-hero-banner__wrap c-hero-banner__wrap--contained">
+    <h1 class="c-hero-banner__title">
+      {{ entry.title }}
+    </h1>
+    <div class="c-hero-banner__supporting">
+      <div class="c-hero-banner__avater">
+        {% for entry in entry.articleAuthor.all() %}
+          <img src="{{ entry.personImage.one().getUrl('articleAuthorSmall') }}" alt="{{ entry.title }}" width="{{ entry.personImage.one().getWidth('articleAuthorSmall') }}" height="{{ entry.personImage.one().getHeight('articleAuthorSmall') }}">
+        {% endfor %}
+        </div>
+        <div class="c-hero-banner__author">
+          <strong>Author</strong>
+          {% for entry in entry.articleAuthor.all() %}
+            <p>
+              {{ entry.title }}
+            </p>
+          {% endfor %}
+        </div>
+        <div class="c-hero-banner__posted">
+          <strong>Published</strong>
+          <time>
+            {{ entry.postDate | date('d M Y') }}
+          </time>
+        </div>
+        <div class="c-hero-banner__updated">
+          <strong>Updated</strong>
+          <time>
+          {{ entry.dateUpdated | date('d M Y') }}
+          </time>
+        </div>
+      </div>
+    </section>
+    <span class="c-hero-banner__icon">
+      {{ macros.toggleArrow('arrow-down', 'js-hero-banner-icon') }}
+    </span>
+  </header>

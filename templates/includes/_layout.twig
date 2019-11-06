@@ -1,0 +1,111 @@
+{#
+ # Layout template
+ # ---------------
+ #
+ # This template defines your site’s global layout. It can be
+ # “extended” by other templates to fill in the gaps.
+ #
+ # See Twig’s Template Inheritance documentation for more details:
+ # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+ #}
+
+ <!DOCTYPE html>
+ <html lang="{{ craft.app.locale }}" class="no-js">
+ <head>
+
+    {% include 'includes/_meta' %}
+ 
+   {# CSS File #}
+     {% if craft.app.config.general.devMode %}
+       {% do view.registerCssFile("/assets/dist/css/main.css") %}
+     {% else %}
+       <style>{{ inline('./assets/dist/css/main.css') | raw }}</style>
+     {% endif %}
+   {# CSS File #}
+ 
+   {# Head Block (Used mainly for Schema) #}
+     {% block head %}
+     {% endblock %}
+   {# /Head Block #}
+   {{ head() }}
+ </head>
+ 
+ <body class="root {% if craft.app.request.getUrl() == '/' %}home{% endif %} ">
+ 
+   <!--[if lte IE 9]>
+     <div class="site-notice">
+       <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+     </div>
+   <![endif]-->
+ 
+   {# Admin Bar #}
+     {# {{ adminbar() }} #}
+   {# /Admin Bar #}
+ 
+   {# Skip to Content #}
+     <a href="#content" class="skip-to-content">Skip to content</a>
+   {# /Skip to Content #}
+
+   {# Cookie notice #}
+    {% include 'includes/common/_cookie-notice' %}
+   {# /cookie notice #}
+ 
+   {# Site Wrapper #}
+     <div id="site" class="site-wrap">
+       {# Site Header #}
+         {% include 'includes/globals/_site-header' %}
+       {# /Site Header #}
+ 
+       {# Site Main #}
+         <main id="content" class="site-main" role="main">
+           {% block content %}
+             <p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+             <p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+           {% endblock %}
+         </main>
+       {# /Site Main #}
+ 
+       {# Site Footer #}
+         {% include 'includes/globals/_site-footer' %}
+       {# /Site Footer #}
+     </div>
+   {# /Site Wrapper #}
+
+  {# Icons #}
+    <div class="u-sr-only">
+      {{ inline('assets/dist/icons/icons.svg') | raw }}
+    </div>
+  {# /Icons #}
+ 
+   {# JS / No JS #}
+     <script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+   {# /JS / No JS #}
+ 
+<script src="https://sdks.shopifycdn.com/js-buy-sdk/v1/latest/index.umd.min.js"></script>
+
+    <script data-shopify-buy-ui>
+      const client = ShopifyBuy.buildClient({
+        domain: 'noisecreations.myshopify.com',
+        storefrontAccessToken: '4b9b073c470304d76c87368926e5bdca', // previously apiKey, now deprecated
+      });
+
+      const productId = '3928488116258=';
+
+      client.product.fetch(productId).then((product) => {
+        // Do something with the product
+        console.log(product);
+      });
+
+    </script>
+
+   {# JS Files #}
+     {% if craft.app.config.general.devMode %}
+       {% do view.registerJsFile("/assets/dist/js/main.js", {"defer":"defer"}) %}
+     {% else %}
+       {% do view.registerJsFile("/assets/dist/js/main.js") %}
+     {% endif %}
+ 
+     {{ endBody() }}
+   {# /JS Files #}
+ </body>
+ </html>

@@ -1,0 +1,31 @@
+{#
+/**
+ * @_site-navigation
+ * Global site navigation file which is included in the _site-header.twig file
+ */
+#}
+{% import 'includes/_macros' as macros  %}
+
+<nav class="js-site-nav-mobile o-site-nav-mobile" role="nav">
+  <ul class="u-unstyled-list o-site-nav-mobile__list">
+    {% for navItem in globalSettings.siteNavigation.all() %}
+      <li class="o-site-nav-mobile__item u-text-caps {% if url(craft.app.request.pathInfo) == navItem.url %}is-active{% endif %}">
+        <a href="{{ navItem.url }}" class="o-site-nav-mobile__link">{{ navItem.title }}</a>
+        
+        {# <a href="#" role="button" class="js-site-nav-mobile-open-secondary o-site-nav-mobile-action" aria-label="Open sub menu">
+          <span class="o-site-nav-mobile-action__line o-site-nav-mobile-action__line--top" aria-hidden="true"></span>
+          <span class="o-site-nav-mobile-action__line o-site-nav-mobile-action__line--bottom" aria-hidden="true"></span>
+        </a>
+
+        <ul class="js-site-nav-mobile-secondary-menu u-unstyled-list o-site-nav-mobile-sub-menu">
+          <li class="o-site-nav-mobile-sub-menu__item">
+            <a href="/" class="o-site-nav-mobile-sub-menu__link">Arcadia</a>
+          </li>
+          <li class="o-site-nav-mobile-sub-menu__item">
+            <a href="/" class="o-site-nav-mobile-sub-menu__link">ArcadiaMX</a>
+          </li>
+        </ul> #}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

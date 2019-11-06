@@ -1,0 +1,32 @@
+{% set tag = craft.tags.slug(tag).one() %}
+{% set query = craft.entries.relatedTo(tag) %}
+
+{% set entry = tag %}
+{% set metaTitle = tag %}
+{% set title = tag %}
+{% set metaDescription = "Articles about #{tag}" %}
+
+{% import 'includes/_macros' as macros  %}
+{% extends "includes/_layout" %}
+
+{% block content %}
+  <section class="c-hero-banner u-text-c">
+    <div class="c-hero-banner__wrap">
+      <h1 class="c-hero-banner__title">{{ tag }}</h1>
+    </div>
+  </section>
+  <section class="c-blog-teaser-grid">
+  <div class="l-wrap">
+    {% if query is empty %}
+      <div class="l-col">
+        <h2>Sorry, but there are no articles from this year.</h2>
+      </div>
+    {% endif %}
+    {% for article in query %}
+      <div class="l-col l-col--sm-12 l-col--md-6 l-col--lg-4">
+        {% include 'includes/common/_article-teaser' with {'article': article} %}
+      </div>
+    {% endfor %}
+  </div>
+  </section>
+{% endblock %}

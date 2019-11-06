@@ -1,0 +1,52 @@
+{% import 'includes/_macros' as macros  %}
+
+<footer class="o-site-footer" role="contentinfo">
+  <section class="o-pre-footer">
+    <div class="l-wrap">
+      <div class="l-col o-pre-footer__content">
+        <h2 class="o-heading-3 o-pre-footer__title">{{ globalSettings.preFooterTitle }}</h2>
+        <a href="{{ globalSettings.preFooterButtonLink.one.getUrl() }}" class="o-btn o-btn-accent o-pre-footer__btn">{{ globalSettings.preFooterButtonText }}</a>
+      </div>
+    </div>
+  </section>
+  <div class="o-site-footer__bottom">
+    <div class="l-wrap">
+      <div class="l-col l-col--sm-12 l-col--md-12 l-col--lg-3 o-site-footer__col o-site-footer__col--no-spacing">
+        {{ macros.icon('logo', '250px', '50px') }}
+        <p>noisecreations &copy; {{ "now"|date("Y") }}</p>
+      </div>
+      <nav class="l-col l-col--sm-12 l-col--md-6 l-col--lg-3 o-site-footer__col" role="navigation">
+        <h2 class="o-site-footer__title">sound collections</h2>
+        <ul class="u-unstyled-list o-site-footer-list">
+          {% set paidCat = craft.categories.slug('paid') %}
+          {% for collection in craft.entries.section('soundCollections').relatedTo(paidCat).all %}
+            <li class="o-site-footer-list__item">
+              <a class="o-site-footer-list__link" href="{{ collection.url }}">{{ collection.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      <nav class="l-col l-col--sm-12 l-col--md-6 l-col--lg-3 o-site-footer__col" role="navigation">
+        <h2 class="o-site-footer__title">variety / free collections</h2>
+        <ul class="u-unstyled-list o-site-footer-list">
+          {% set varCat = craft.categories.slug('variety') %}
+          {% for collection in craft.entries.section('soundCollections').relatedTo(varCat).all %}
+            <li class="o-site-footer-list__item">
+              <a class="o-site-footer-list__link" href="{{ collection.url }}">{{ collection.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      <nav class="l-col l-col--sm-12 l-col--md-6 l-col--lg-3 o-site-footer__col" role="navigation">
+        <h2 class="o-site-footer__title">{{ globalSettings.footerNavigationTitle }}</h2>
+        <ul class="u-unstyled-list o-site-footer-nav">
+          {% for navItem in globalSettings.footerNavigationLinks.all() %}
+            <li class="o-site-footer-list__item">
+              <a class="o-site-footer-list__link" href="{{ navItem.url }}">{{ navItem.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>

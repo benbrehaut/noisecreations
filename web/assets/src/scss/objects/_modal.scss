@@ -1,0 +1,52 @@
+/// ============================================================================
+// Object: _modal
+/// ============================================================================
+.o-modal {
+  @include absolute-center;
+  position: fixed;
+  background-color: $palette-tertiary;
+  box-shadow: $global-box-shadow;
+  max-width: rem-calc(557);
+  font-size: rem-calc(16);
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  transition: all 400ms ease-in-out;
+}
+
+.o-modal.is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: index($z-stack, modal);
+  transition: all 400ms ease-in-out;
+}
+
+.o-modal--bottom {
+  transform: none;
+  top: auto;
+  left: auto;
+  bottom: 25px;
+  right: 25px;
+  margin-left: rem-calc(25);
+}
+
+.o-modal__wrapper {
+  margin: rem-calc(20);
+}
+
+.o-modal__header {
+  position: relative;
+  padding-right: rem-calc(55);
+}
+
+.o-modal__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  appearance: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}

@@ -1,0 +1,45 @@
+
+{#
+ # Sound Collection template
+ # -------------------
+ #
+ # This template gets loaded whenever a News entry’s URL is
+ # requested. That’s because the News section’s Template setting is
+ # set to “news/_entry”, the path to this template.
+ #
+ # When this template is loaded, it will already have an ‘entry’
+ # variable, set to the requested News entry.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://craftcms.com/docs/routing
+ #}
+
+ {% set metaTitle = entry.metaTitle %}
+ {% set title = entry.title %}
+ {% set metaDescription = entry.metaDescription %}
+ {% if entry.metaBanner|length %}
+   {% set metaBanner = entry.metaBanner.one().getUrl() %}
+ {% endif %}
+ 
+ {% extends "includes/_layout" %}
+ 
+ {% block content %}
+  {% include 'sound-collections/_hero-banner' %}
+
+  {% include 'sound-collections/_menu' %}
+
+  <article class="c-product-content">
+    <div class="l-wrap">
+      <div class="c-product-content__info l-col l-col--sm-12 l-col--md-6">
+        <h2>Description</h2>
+        {{ entry.soundCollectionDescription }}
+
+        {{ entry.soundCollectionSoundCloudEmbed|raw }}
+      </div>
+      <div class="l-col l-col--sm-12 l-col--md-6">
+        {% include 'sound-collections/_accordion' %}
+      </div>
+    </div>
+  </article>
+
+ {% endblock %}

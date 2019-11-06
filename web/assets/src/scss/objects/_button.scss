@@ -1,0 +1,65 @@
+/// ============================================================================
+// Object: _buttons
+/// ============================================================================
+
+.o-btn {
+  @include btn-reset;
+  border-radius: $global-border-radius;
+  display: inline-block;
+  line-height: $line-height-base;
+  font-family: $font-family-secondary;
+  font-size: rem-calc(18);
+  padding: rem-calc(10 30);
+  position: relative;
+  transition: all 200ms ease-in-out;
+  text-align: center;
+}
+
+.o-btn-accent {
+  background-color: $palette-primary;
+  color: $palette-tertiary;
+
+  @include hocus {
+    background-color: lighten($palette-primary, 5);
+  }
+}
+
+.o-btn-primary {
+  background-color: #fff;
+  border: 1px solid rgba($palette-secondary, 0.4);
+  color: $palette-secondary;
+
+  @include hocus {
+    background-color: #F6F7F8;
+  }
+}
+
+.o-btn-price {
+  font-size: rem-calc(14);
+  padding: 0;
+  background-color: transparent;
+
+  @include hocus {
+    background-color: transparent;
+  }
+}
+
+.o-btn-price__text,
+.o-btn-price__price {
+  display: inline-block;
+}
+
+.o-btn-price__text {
+  padding: rem-calc(12 25);
+  background-color: $palette-primary;
+  border-top-left-radius: $global-border-radius;
+  border-bottom-left-radius: $global-border-radius;
+}
+
+.o-btn-price__price {
+  background-color: $palette-tertiary;
+  color: $palette-secondary;
+  border-top-right-radius: $global-border-radius;
+  border-bottom-right-radius: $global-border-radius;
+  padding: rem-calc(12 10);
+}

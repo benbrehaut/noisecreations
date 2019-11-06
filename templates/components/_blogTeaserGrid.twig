@@ -1,0 +1,71 @@
+{# Use the `group` filter to get the years, entries were posted in #}
+{% set entries = craft.entries.section('articles') %}
+{% set entriesByYear = craft.entries.section('articles').all()|group('postDate|date("Y")') %}
+{% paginate entries.limit(12) as pageInfo, pageEntries %}
+
+<nav class="js-sticky c-blog-filter-bar" role="navigation">
+  <div class="l-wrap">
+    <div class="l-col">
+      <label for="filter-dropdown" class="c-blog-filter-bar__label u-text-caps">Filter aticles by: </label>
+      <select name="filter-dropdown" id="filter-dropdown" class="js-blog-dropdown c-blog-filter-bar__dropdown">
+        <option value="year" selected>Year</option>
+        {% for year, entries in entriesByYear %}
+            <option value="{{ year }}" data-year-link="{{ entry.url }}/{{ year }}">{{ year }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</nav>
+
+<div class="js-blog-articles c-blog-teaser-grid">
+  <div class="l-wrap">
+    {% for article in pageEntries %}
+      <div class="l-col l-col--sm-12 l-col--md-6 l-col--lg-4">
+        {% include 'includes/common/_article-teaser' with {'article': article} %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="js-blog-articles-pagination l-wrap">
+    <div class="l-col l-col--sm-12 u-text-r">
+      <nav class="o-pagination" role="navigation" aria-label="pagination">
+        <ul class="u-unstyled-list o-pagination-list">
+
+          {# <a href="{{ pageInfo.firstUrl }}">First Page</a>
+          {% if pageInfo.prevUrl %}
+            <a href="{{ pageInfo.prevUrl }}">Previous Page</a>
+          {% endif %} #}
+
+          {% for page, url in pageInfo.getPrevUrls(5) %}
+            <li class="o-pagination-list__item u-text-c">
+              <a href="{{ url }}" class="o-pagination-list__link">
+                <span class="u-sr-only">page </span>{{ page }}
+              </a>
+            </li>
+          {% endfor %}
+
+          <li class="o-pagination-list__item is-current u-text-c">
+            <a href="#" class="o-pagination-list__link" aria-current="page">
+              <span class="u-sr-only">page </span>{{ pageInfo.currentPage }}
+            </a>
+          </li>
+
+          {% for page, url in pageInfo.getNextUrls(5) %}
+            <li class="o-pagination-list__item u-text-c">
+              <a href="{{ url }}" class="o-pagination-list__link">
+                <span class="u-sr-only">page </span>{{ page }}
+              </a>
+            </li>
+          {% endfor %}
+
+            {# {% if pageInfo.nextUrl %}
+              <a href="{{ pageInfo.nextUrl }}">Next Page</a>
+            {% endif %}
+            <a href="{{ pageInfo.lastUrl }}">Last Page</a> #}
+
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+</div>

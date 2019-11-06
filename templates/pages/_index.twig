@@ -1,0 +1,33 @@
+{#
+ # Index template
+ # -------------------
+ #
+ # This template gets loaded whenever a News entry’s URL is
+ # requested. That’s because the News section’s Template setting is
+ # set to “news/_entry”, the path to this template.
+ #
+ # When this template is loaded, it will already have an ‘entry’
+ # variable, set to the requested News entry.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://craftcms.com/docs/routing
+ #}
+{% set metaTitle = entry.metaTitle %}
+{% set title = entry.title %}
+{% set metaDescription = entry.metaDescription %}
+{% if entry.metaBanner|length %}
+  {% set metaBanner = entry.metaBanner.one().getUrl() %}
+{% endif %}
+{% extends "includes/_layout" %}
+{% block content %}
+  {% include 'components/_heroBanner' %}
+
+  <div class="js-scroll-to">
+    {% for component in entry.selectComponent.all() %}
+      <div id="{{ entry|lower|replace('/[^a-zA-Z0-9 ]/', '-') }} {{ component.type.handle|lower }}-{{component}}" class="component component--{{ component.type.handle|lower }}">
+        {% include ('components/_' ~ component.type.handle) %}
+      </div>     
+    {% endfor %}
+  </div>
+
+{% endblock %}

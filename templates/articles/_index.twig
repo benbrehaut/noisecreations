@@ -1,0 +1,13 @@
+{% set metaTitle = entry.metaTitle %}
+{% set title = entry.title %}
+{% set metaDescription = entry.metaDescription %}
+{% if entry.articleBanner|length %}
+  {% set metaBanner = entry.articleBanner.one().getUrl() %}
+{% endif %}
+{% import 'includes/_macros' as macros  %}
+{% extends "includes/_layout" %}
+{% block content %}
+  {% include 'articles/_articleBanner.twig' %}
+  {% include 'articles/_articleContent.twig' %}
+  {% include 'articles/_articleMeta.twig' %}
+{% endblock %}

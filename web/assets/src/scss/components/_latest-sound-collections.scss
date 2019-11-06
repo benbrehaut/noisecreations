@@ -1,0 +1,11 @@
+.c-latest-sound-collections {
+  padding: $spacing-large 0;
+
+  @include breakpoint(md only) {
+    padding: $spacing-medium 0;
+  }
+
+  @include breakpoint(sm only) {
+    padding: $spacing-small 0;
+  }
+}

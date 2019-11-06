@@ -1,0 +1,56 @@
+{% macro errorList(errors) %}
+    {% if errors %}
+        <ul class="u-sr-only errors">
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}
+
+{% from _self import errorList %}
+
+{% if craft.app.session.hasFlash('notice') %}
+    <strong>{{ craft.app.session.getFlash('notice') }}</strong>
+{% elseif craft.app.session.hasFlash('error') %}
+    <strong>{{ craft.app.session.getFlash('error') }}</strong>
+{% endif %}
+
+{% if not craft.app.session.hasFlash('notice') %}
+    <form class="js-contact-form" method="post" action="" accept-charset="UTF-8">
+        {{ csrfInput() }}
+        <input type="hidden" name="action" value="contact-form/send">
+
+        <div class="c-input-control">
+            <label class="u-sr-only" for="from-name">Your Name</label>
+            <input id="from-name" placeholder="Your Name" type="text" name="fromName" required aria-required="true" value="{{ message.fromName ?? '' }}">
+            <span class="c-input-control__astrix" aria-hidden="true">*</span>
+            {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+        </div>
+
+        <div class="c-input-control">
+            <label class="u-sr-only" for="from-email">Your Email Address</label>
+            <input id="from-emai" placeholder="Your Email Address" type="email" name="fromEmail" required aria-required="true" value="{{ message.fromEmail ?? '' }}">
+            <span class="c-input-control__astrix" aria-hidden="true">*</span>
+            {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+        </div>
+
+        <div class="c-input-control">
+            <label class="u-sr-only" for="subject">Subject</label>
+            <input id="subject" placeholder="Subject" type="text" name="subject" required aria-required="true" value="{{ message.subject ?? '' }}">
+            <span class="c-input-control__astrix" aria-hidden="true">*</span>
+            {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+        </div>
+
+        <div class="c-input-control">
+            <label class="u-sr-only" for="message">Your Message</label>
+            <textarea rows="10" placeholder="Your Message" id="message" required aria-required="true" name="message">{{ message.message ?? '' }}</textarea>
+            <span class="c-input-control__astrix" aria-hidden="true">*</span>
+            {{ message is defined and message ? errorList(message.getErrors('message')) }}
+        </div>
+
+        <input id="some-field" name="some-field" type="text" aria-hidden="true" class="u-sr-only">
+        
+        <button type="submit" class="o-btn o-btn-accent">Submit</button>
+    </form>
+{% endif %}

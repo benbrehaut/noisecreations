@@ -1,0 +1,41 @@
+.o-article-teaser {
+  width: 100%;
+  margin-bottom: rem-calc(70);
+}
+
+.o-article-teaser__img {
+  @include breakpoint(sm only) {
+    width: 100%;
+  }
+}
+
+.o-article-teaser__date {
+  color: #757575;
+  font-size: rem-calc(18);
+  font-family: $font-family-secondary;
+  margin-bottom: rem-calc(10);
+  display: block;
+}
+
+.o-article-teaser__content {
+  padding: rem-calc(20 10);
+  max-width: 90%;
+  width: 100%;
+  margin: -50px auto 0;
+  position: relative;
+  z-index: 1;
+}
+
+.o-article-teaser__heading {
+  color: $palette-secondary;
+  margin-bottom: 0;
+
+  a {
+    color: currentColor;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

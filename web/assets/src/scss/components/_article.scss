@@ -1,0 +1,40 @@
+.c-article {
+  margin-top: rem-calc(80);
+  margin-bottom: rem-calc(80);
+}
+
+.c-article-share {
+  margin-bottom: rem-calc(80);
+}
+
+.c-article-author {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  padding: rem-calc(40);
+  margin-bottom: rem-calc(50);
+}
+
+.c-article-author__figure {
+  margin-right: rem-calc(50);
+  margin-bottom: rem-calc(50);
+}
+
+.c-article-author__avatar {
+  border-radius: 50%;
+}
+
+.c-article-author__bio {
+  flex: 1;
+}
+
+.c-article-tags {
+  width: 100%;
+  margin-bottom: rem-calc(50) !important;
+}
+
+.c-article-tags__tag {
+  display: inline-block;
+  margin-right: rem-calc(25);
+  margin-bottom: rem-calc(25);
+}

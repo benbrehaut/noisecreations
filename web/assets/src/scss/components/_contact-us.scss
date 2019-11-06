@@ -1,0 +1,36 @@
+.c-contact-us {
+  padding: $spacing-large 0 $spacing-large;
+}
+
+.c-contact-us-social {
+  margin-top: rem-calc(20) !important;
+}
+
+.c-contact-us-social__item {
+  margin-bottom: rem-calc(15);
+}
+
+.c-contact-us-social__link {
+  color: $palette-secondary;
+  display: inline-flex;
+  font-family: $font-family-secondary;
+  font-size: rem-calc(18);
+  text-decoration: none;
+
+  svg {
+    transition: 150ms ease-in-out;
+  }
+
+  &:hover {
+    text-decoration: underline;
+
+    svg {
+      fill: $palette-primary !important;
+    }
+  }
+}
+
+.c-contact-us-social__icon {
+  margin-right: rem-calc(22);
+  vertical-align: middle;
+}

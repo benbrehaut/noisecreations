@@ -1,0 +1,13 @@
+.c-input-control {
+  position: relative;
+  margin-bottom: rem-calc(20);
+}
+
+.c-input-control__astrix {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  color: $palette-error;
+  font-family: $font-family-secondary;
+  font-size: rem-calc(26);
+}

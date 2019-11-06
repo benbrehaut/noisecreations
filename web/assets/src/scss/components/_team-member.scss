@@ -1,0 +1,35 @@
+.c-team-member {
+  display: flex;
+  margin-bottom: rem-calc(60);
+
+  &__card {
+    height: 100%;
+    position: relative;
+  }
+
+  &__header {
+    margin-bottom: rem-calc(30);
+
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  &__info {
+    margin-bottom: rem-calc(120);
+  }
+
+  &__social {
+    @include horizontal-center;
+    bottom: rem-calc(45);
+    width: 100%;
+
+    svg {
+      fill: $palette-secondary !important;
+
+      &:hover {
+        fill: $palette-primary !important;
+      }
+    }
+  }
+}

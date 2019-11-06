@@ -1,0 +1,43 @@
+.o-pagination {
+  width: auto;
+  display: inline-block;
+  font-size: 0;
+}
+
+.o-pagination-list {
+  box-shadow: $global-box-shadow;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.o-pagination-list__item {
+  background-color: $palette-tertiary;
+  display: inline-block;
+  transition: 200ms ease-in-out;
+  color: $palette-quaternary;
+  width: rem-calc(60);
+
+  &:hover {
+    background-color: $palette-secondary;
+    color: $palette-tertiary;
+  }
+
+  &.is-current {
+    background-color: $palette-primary;
+
+    .o-pagination-list__link {
+      color: $palette-tertiary;
+      pointer-events: none;
+      cursor: no-drop;
+    }
+  }
+}
+
+.o-pagination-list__link {
+  color: inherit;
+  font-weight: bold;
+  text-decoration: none;
+  padding: rem-calc(14);
+  display: block;
+  font-size: rem-calc(16);
+}

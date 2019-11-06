@@ -1,0 +1,14 @@
+{% set query = craft.entries.section('articles').dateCreated(['and', ">= #{year}", "< #{year + 1}"]).all() %}
+
+  <div class="l-wrap">
+    {% if query is empty %}
+      <div class="l-col">
+        <h2>Sorry, but there are no articles from this year.</h2>
+      </div>
+    {% endif %}
+    {% for article in query %}
+      <div class="l-col l-col--sm-12 l-col--md-6 l-col--lg-4">
+        {% include 'includes/common/_article-teaser' with {'article': article} %}
+      </div>
+    {% endfor %}
+  </div>

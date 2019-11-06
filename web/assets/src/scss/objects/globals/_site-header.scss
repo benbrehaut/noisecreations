@@ -1,0 +1,115 @@
+/// ============================================================================
+// Object: _site-header
+/// ============================================================================
+.o-site-header {
+  width: 100%;
+  position: absolute;
+  z-index: index($z-stack, siteHeader);
+  padding-top: rem-calc(25);
+
+  @include breakpoint(md down) {
+    padding-top: rem-calc(5);
+  }
+}
+
+.o-site-header__row {
+  @include flex-grid-column;
+  align-items: center;
+}
+
+.o-site-header__logo {
+  margin-right: rem-calc(56);
+  position: relative;
+  z-index: index($z-stack, siteHeader);
+
+  @include breakpoint(md down) {
+    margin-right: 0;
+  }
+}
+
+.o-site-header-social-list {
+  @include unstyled-list;
+  margin: 0 0 0 auto;
+
+  @include breakpoint(md down) {
+    display: none;
+  }
+}
+
+.o-site-header-social-list__item {
+  display: inline-block;
+  vertical-align: middle;
+
+  &:not(:last-of-type) {
+    margin-right: rem-calc(20);
+  }
+}
+
+.o-site-header-social-list__link {
+  transition: 200ms ease-in-out;
+
+  &:hover svg {
+    fill: #F4D03F !important;
+  }
+
+  svg {
+    transition: 200ms ease-in-out;
+  }
+}
+
+// Hamburger Menu
+.o-site-header-toggler {
+  @include btn-reset;
+  display: none;
+  position: relative;
+  width: 50px;
+  height: 60px;
+  border-radius: 0;
+  margin-left: auto;
+  overflow: hidden;
+  z-index: index($z-stack, siteHeader);
+
+  @include breakpoint(md down) {
+    display: block;
+  }
+
+  &__hamburger-line {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: $palette-tertiary;
+    border-radius: 5px;
+    position: absolute;
+    left: 20px;
+    transform-orign: 50% 50%;
+    margin-top: -1px;
+    transition: all 150ms ease-in-out;
+    
+    &--top {
+      top: 20px;
+      
+      .is-active & {
+        transform: rotate(45deg);
+        top: 25px;
+      }
+    }
+    
+    &--middle {
+      top: 28px;
+      
+      .is-active & {
+        opacity: 0;
+        transform: translate(100%, 0);
+      }
+    }
+    
+    &--bottom {
+      top: 36px;
+      
+      .is-active & {
+        transform: rotate(-45deg);
+        top: 25px;
+      }
+    }
+  }
+}

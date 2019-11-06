@@ -1,0 +1,31 @@
+{% if component.showSoundCollections %}
+
+  {% set cssClass = 'u-primary-background' %}
+  {% set i = 0 %}
+
+  {% set entryIds = craft.entries.section('soundCollections').ids() %}
+  {% set categories = craft.categories.relatedTo({ sourceElement: entryIds }).find() %}
+
+  {% for category in categories %}
+    {% set i = i + 1 %}
+
+      <div class="c-sound-collection-grid {{ i is even ? 'u-secondary-background' : 'u-primary-background' }}">
+        <section class="l-wrap">
+          <div class="l-col u-text-c">
+            <h2 class="c-sound-collection-grid__title">{{ category.title }}</h2>
+          </div>
+        </section>
+
+        {% set entries = craft.entries.relatedTo(category) %}
+
+        <div class="l-wrap">
+          {% for entry in entries %}
+            <div class="l-col l-col--sm-12 l-col--md-6 l-col--lg-4">
+              {% include 'includes/common/_sound-collection-teaser' with {'collection': entry} %}
+            </div>
+          {% endfor %}
+        </div>
+
+      </div>
+  {% endfor %}
+{% endif %}
