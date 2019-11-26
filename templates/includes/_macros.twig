@@ -11,6 +11,7 @@
 {% macro toggleArrow(arrowDir, class, href, text) %}
   {% import _self as macro %}
   <a href="{{ href }}" class="o-toggle-arrow {{ class }}" role="button" aria-label="{{ text }}">
+    <span class="u-sr-only">Scroll down</span>
       <span class="o-toggle-arrow__wrap">
         {{ macro.icon(arrowDir, '20px', '20px') }}
       </span>
