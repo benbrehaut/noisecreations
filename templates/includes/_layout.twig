@@ -80,23 +80,6 @@
    {# JS / No JS #}
      <script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
    {# /JS / No JS #}
- 
-<script src="https://sdks.shopifycdn.com/js-buy-sdk/v1/latest/index.umd.min.js"></script>
-
-    <script data-shopify-buy-ui>
-      const client = ShopifyBuy.buildClient({
-        domain: 'noisecreations.myshopify.com',
-        storefrontAccessToken: '4b9b073c470304d76c87368926e5bdca', // previously apiKey, now deprecated
-      });
-
-      const productId = '3928488116258=';
-
-      client.product.fetch(productId).then((product) => {
-        // Do something with the product
-        console.log(product);
-      });
-
-    </script>
 
    {# JS Files #}
      {% if craft.app.config.general.devMode %}
