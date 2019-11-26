@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dcc7b9f8eca844fc2a6de31788d34750",
+    "content-hash": "7024b16dd8793ea2fbff4c41e353bb37",
     "packages": [
         {
             "name": "albertcht/invisible-recaptcha",
@@ -952,6 +952,63 @@
             "time": "2019-06-08T11:03:04+00:00"
         },
         {
+            "name": "dolphiq/sitemap",
+            "version": "1.2.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dolphiq/craft3-plugin-sitemap/zipball/5c062c6cedb89f248867278298450744a4e4565d",
+                "reference": "5c062c6cedb89f248867278298450744a4e4565d",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.2.0",
+                "jaybizzle/crawler-detect": "1.*"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "XML Sitemap",
+                "handle": "sitemap",
+                "schemaVersion": "1.0.2",
+                "developer": "Dolphiq",
+                "developerUrl": "https://dolphiq.nl/",
+                "hasCpSettings": true,
+                "hasCpSection": false,
+                "components": {
+                    "sitemapService": "dolphiq\\sitemap\\services\\SitemapService"
+                },
+                "documentationUrl": "https://github.com/Dolphiq/craft3-plugin-sitemap/blob/master/README.md",
+                "changelogUrl": "https://github.com/Dolphiq/craft3-plugin-sitemap/blob/master/CHANGELOG.md",
+                "class": "dolphiq\\sitemap\\Sitemap"
+            },
+            "autoload": {
+                "psr-4": {
+                    "dolphiq\\sitemap\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dolphiq",
+                    "email": "info@dolphiq.nl",
+                    "homepage": "https://dolphiq.nl/"
+                }
+            ],
+            "description": "Craft 3 plugin that provides an easy way to provide and manage a XML sitemap for search engines like Google and Bing",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "seo",
+                "sitemap",
+                "sitemap.xml",
+                "webmaster tools"
+            ],
+            "time": "2019-11-04T09:16:16+00:00"
+        },
+        {
             "name": "egulias/email-validator",
             "version": "2.1.10",
             "dist": {
@@ -1411,6 +1468,45 @@
             ],
             "description": "Provides functionality for http_build_url() to environments without pecl_http.",
             "time": "2017-05-01T15:36:40+00:00"
+        },
+        {
+            "name": "jaybizzle/crawler-detect",
+            "version": "v1.2.89",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/374d699ce4944107015eee0798eab072e3c47df9",
+                "reference": "374d699ce4944107015eee0798eab072e3c47df9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jaybizzle\\CrawlerDetect\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Beech",
+                    "email": "m@rkbee.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CrawlerDetect is a PHP class for detecting bots/crawlers/spiders via the user agent",
+            "homepage": "https://github.com/JayBizzle/Crawler-Detect/",
+            "keywords": [
+                "crawler",
+                "crawler detect",
+                "crawler detector",
+                "crawlerdetect",
+                "php crawler detect"
+            ],
+            "time": "2019-11-16T13:47:52+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
